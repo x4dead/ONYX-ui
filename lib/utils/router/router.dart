@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:onyx_ui/ui/pages/splash_screen/splash_screen.dart';
+import 'package:onyx_ui/utils/router/fade_transition.dart';
 // import 'package:qaz_booking_ui/model/guest_model.dart';
 // import 'package:qaz_booking_ui/model/object_to_book_model.dart';
 // import 'package:qaz_booking_ui/themes/colors/app_colors.dart';
@@ -30,17 +32,17 @@ class AppRouter {
       observers: [GoRouterObserver()],
       initialLocation: '/',
       routes: <RouteBase>[
-        // GoRoute(
-        //   path: '/',
-        //   redirect: (_, __) {
-        //     // if (UserPref.getUserUid != '') {
-        //     // return '/main';
-        //     // } else {
-        //     // return '/splash';
-        //     return '/auth';
-        //     // }
-        //   },
-        // ),
+        GoRoute(
+          path: '/',
+          redirect: (_, __) {
+            // if (UserPref.getUserUid != '') {
+            // return '/main';
+            // } else {
+            return '/splash';
+            // return '/auth';
+            // }
+          },
+        ),
         // GoRoute(
         //   path: '/auth',
         //   pageBuilder: (context, state) {
@@ -48,13 +50,13 @@ class AppRouter {
         //         child: const AuthPage(), key: state.pageKey);
         //   },
         // ),
-        // GoRoute(
-        //   path: '/splash',
-        //   pageBuilder: (context, state) {
-        //     return FadeTransitionPage(
-        //         child: const SplashScreen(), key: state.pageKey);
-        //   },
-        // ),
+        GoRoute(
+          path: '/splash',
+          pageBuilder: (context, state) {
+            return FadeTransitionPage(
+                child: const SplashScreen(), key: state.pageKey);
+          },
+        ),
         // GoRoute(
         //   path: '/main',
         //   pageBuilder: (context, state) {

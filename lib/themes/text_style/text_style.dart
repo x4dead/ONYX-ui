@@ -1,6 +1,6 @@
 ﻿import 'package:flutter/cupertino.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
-import 'package:onyx_ui/utils/extentions/figma_height.dart';
+import 'package:onyx_ui/utils/extensions/figma_height.dart';
 
 abstract class AppTextStyle {
   static const TextStyle w500s18 =
@@ -33,6 +33,7 @@ abstract class AppTextStyle {
   static const TextStyle w600s16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
+    color: AppColors.colorGray0,
   );
   static const TextStyle w600s15 = TextStyle(
     fontSize: 15,
@@ -57,6 +58,8 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w500,
     // height: 19.0.toFigmaHeight(16)
   );
+  static const TextStyle w500s16fSF = TextStyle(
+      fontFamily: 'SF Pro Display', fontSize: 16, fontWeight: FontWeight.w500);
 
   // static const TextStyle w500s12 =
   //     TextStyle(fontSize: 12, fontWeight: FontWeight.w500);
