@@ -8,7 +8,7 @@ const kSBW15 = SizedBox(width: 15);
 const kSBW14 = SizedBox(width: 14);
 const kSBH25 = SizedBox(height: 25);
 const kSBH99 = SizedBox(height: 99);
-
+const spacer = Spacer();
 const kSBH50 = SizedBox(height: 50);
 const kSBH45 = SizedBox(height: 45);
 const kSBH10 = SizedBox(height: 10);

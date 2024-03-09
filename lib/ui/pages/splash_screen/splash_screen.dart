@@ -56,7 +56,7 @@ class _SplashScreenConsumerState extends ConsumerState<SplashScreen> {
                 kSBH10,
                 Text(context.localization.discount,
                     style: AppTextStyle.w600s16),
-                const Spacer(),
+                spacer,
                 ValueListenableBuilder(
                     valueListenable: isRusLang,
                     builder: (context, v, c) {

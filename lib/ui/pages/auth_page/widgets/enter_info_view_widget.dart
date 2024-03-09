@@ -11,6 +11,7 @@ import 'package:onyx_ui/ui/widgets/floating_label_text_field.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/bool.dart';
 import 'package:onyx_ui/utils/extensions/context_localization.dart';
+import 'package:onyx_ui/utils/extensions/media_query.dart';
 
 class EnterInfoViewWidget extends ConsumerStatefulWidget {
   const EnterInfoViewWidget({super.key});
@@ -32,7 +33,7 @@ class _EnterInfoViewWidgetConsumerState
     final localization = context.localization;
     return Column(
       children: [
-        kSBH18,
+        context.height <= 510 ? kSBH8 : kSBH18,
         Center(
           child: RichText(
             text: TextSpan(
@@ -54,25 +55,46 @@ class _EnterInfoViewWidgetConsumerState
             ),
           ),
         ),
-        kSBH40,
+        // kSBH40,
+        context.height <= 565
+            ? context.height <= 530
+                ? kSBH15
+                : kSBH25
+            // kSBH25
+            : kSBH40,
         FloatingLabelTextField(
             keyboardType: TextInputType.name,
             hintText: localization.enterFullName,
             controller: fullNameController,
             floatingLabelText: localization.fullName),
-        kSBH25,
+        context.height <= 596
+            ? context.height <= 520
+                ? kSBH10
+                : kSBH15
+            // kSBH15
+            : kSBH25,
         FloatingLabelTextField(
             keyboardType: TextInputType.number,
             hintText: localization.enterInn,
             controller: iNNController,
             floatingLabelText: localization.iin),
-        kSBH25,
+        context.height <= 596
+            ? context.height <= 520
+                ? kSBH10
+                : kSBH15
+            // kSBH15
+            : kSBH25,
         FloatingLabelTextField(
             keyboardType: TextInputType.phone,
             hintText: localization.enterPhoneNumber,
             controller: phoneNumberController,
             floatingLabelText: localization.phoneNumber),
-        kSBH25,
+        context.height <= 596
+            ? context.height <= 540
+                ? kSBH5
+                : kSBH15
+            // kSBH15
+            : kSBH25,
         ValueListenableBuilder(
             valueListenable: isUserAgreementAccepted,
             builder: (context, v, c) {
@@ -89,7 +111,13 @@ class _EnterInfoViewWidgetConsumerState
                 title: localization.userAgreement,
               );
             }),
-        const Spacer(),
+        ref.watch(River.settingsPod).locale == 'ru'
+            ? context.height <= 674
+                ? kNothing
+                : spacer
+            : context.height <= 660
+                ? kNothing
+                : spacer,
         Padding(
           padding: kPH20,
           child: Column(
@@ -100,7 +128,8 @@ class _EnterInfoViewWidgetConsumerState
                 },
                 buttonText: localization.next,
               ),
-              kSBH15,
+              context.height <= 565 ? kSBH5 : kSBH15,
+              // kSBH15,
               CustomButton(
                 bgColor: AppColors.colorWhite,
                 textColor: AppColors.colorPrimaryBlue,
@@ -113,10 +142,13 @@ class _EnterInfoViewWidgetConsumerState
             ],
           ),
         ),
-        // const Spacer(),
-        SizedBox(
-          height: 79,
-        )
+        ref.watch(River.settingsPod).locale == 'ru'
+            ? context.height <= 674
+                ? const Expanded(child: SizedBox.expand())
+                : const SizedBox(height: 79)
+            : context.height <= 660
+                ? const Expanded(child: SizedBox.expand())
+                : const SizedBox(height: 79)
       ],
     );
   }

@@ -60,7 +60,6 @@ class _AuthPageState extends State<AuthPage>
                       }),
                 ),
               ),
-
               Flexible(
                 child: DefaultTabController(
                   length: 2,
@@ -75,37 +74,6 @@ class _AuthPageState extends State<AuthPage>
                   ),
                 ),
               ),
-              // kSBH45,
-              // FloatingLabelTextField(
-              //   controller: emailController,
-              //   floatingLabelText: 'Эл. почта',
-              //   hintText: 'Адрес эл. почты',
-              // ),
-              // kSBH25,
-              // Row(
-              //   children: [
-              //     Flexible(
-              //       child: FloatingLabelTextField(
-              //         textAlign: TextAlign.center,
-              //         controller: codeController,
-              //         floatingLabelText: 'Код',
-              //         hintText: '0000',
-              //       ),
-              //     ),
-              //     kSBW15,
-              //     const CustomButton(buttonText: 'Отправить'),
-              //   ],
-              // ),
-              // const Spacer(),
-              // Padding(
-              //   padding: kPH20,
-              //   child: CustomButton(
-              //     buttonText: 'Далее',
-              //     onTap: () => context
-              //         .go('/main', extra: {"is_cupertino_animation": true}),
-              //   ),
-              // ),
-              // kSBH100,
             ],
           ),
         ),
