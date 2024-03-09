@@ -1,9 +1,11 @@
 abstract class AppImages {
   static const chat = 'assets/svg/chat.svg';
+  static const arrowLeft = 'assets/svg/arrow_left.svg';
+
   static const close = 'assets/svg/close.svg';
   static const closeFill = 'assets/svg/close_fill.svg';
-  static const doneFill = 'assets/svg/done_fill.svg';
-  static const done = 'assets/svg/done.svg';
+  // static const doneFill = 'assets/svg/done_fill.svg';
+  // static const done = 'assets/svg/done.svg';
   static const flag = 'assets/svg/flag.svg';
   static const menu = 'assets/svg/menu.svg';
   static const news = 'assets/svg/news.svg';

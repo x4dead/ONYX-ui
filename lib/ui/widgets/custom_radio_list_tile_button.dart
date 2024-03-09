@@ -1,10 +1,8 @@
 ﻿import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/themes/text_style/text_style.dart';
+import 'package:onyx_ui/ui/widgets/splash_button.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
-import 'package:onyx_ui/utils/resources/app_images.dart';
 
 class CustomRadioListTileButton extends StatelessWidget {
   const CustomRadioListTileButton(
@@ -12,35 +10,65 @@ class CustomRadioListTileButton extends StatelessWidget {
       this.isSelected = false,
       required this.title,
       this.onTap,
-      this.titleStyle});
+      this.titleStyle,
+      this.padding,
+      this.isLeadingOnCenter = true,
+      this.isSelectedIconFill = true});
   final bool? isSelected;
+  final bool? isSelectedIconFill;
+  final bool? isLeadingOnCenter;
   final String title;
   final TextStyle? titleStyle;
   final VoidCallback? onTap;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: kPH24V6,
-      tileColor: AppColors.colorGray80,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(circleRadius12)),
-      onTap: onTap ?? () {},
-      horizontalTitleGap: 14,
-      leading: isSelected == true
-          ? SvgPicture.asset(
-              AppImages.doneFill,
-              colorFilter: const ColorFilter.mode(
-                  AppColors.colorPrimaryBlue, BlendMode.srcIn),
-            )
-          : const Icon(
-              CupertinoIcons.circle,
-              color: AppColors.colorGray0,
+    return Container(
+      clipBehavior: Clip.hardEdge,
+      decoration: const BoxDecoration(
+        color: AppColors.colorGray80,
+        borderRadius: BorderRadius.all(circleRadius12),
+      ),
+      child: SplashButton(
+        onTap: onTap ?? () {},
+        child: Container(
+          padding: padding ?? kPH24V18,
+          child: Center(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: isLeadingOnCenter == true
+                      ? Alignment.center
+                      : Alignment.topCenter,
+                  child: Visibility(
+                    visible: isSelected!,
+                    replacement: const Icon(
+                      CupertinoIcons.circle,
+                      color: AppColors.colorGray0,
+                    ),
+                    child: Icon(
+                      isSelectedIconFill == true
+                          ? CupertinoIcons.checkmark_alt_circle_fill
+                          : CupertinoIcons.checkmark_alt_circle,
+                      color: AppColors.colorPrimaryBlue,
+                    ),
+                  ),
+                ),
+                kSBW14,
+                Flexible(
+                  child: Text(
+                    title,
+                    style: titleStyle ??
+                        AppTextStyle.w500s16
+                            .copyWith(color: AppColors.colorGray0),
+                  ),
+                ),
+              ],
             ),
-      title: Text(
-        title,
-        style: titleStyle ??
-            AppTextStyle.w500s16.copyWith(color: AppColors.colorGray0),
+          ),
+        ),
       ),
     );
   }

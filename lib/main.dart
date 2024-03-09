@@ -7,8 +7,9 @@ import 'package:onyx_ui/utils/router/router.dart';
 import 'package:onyx_ui/utils/user_pref.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() {
-  UserPref.init();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await UserPref.init();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -24,7 +25,7 @@ class MyApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        fontFamily: 'Gilroy',
+        fontFamily: UserPref.getLocale == 'ru' ? 'Gilroy' : "SF Pro Display",
         // iconButtonTheme: IconButtonThemeData(
         //   style: IconButton.styleFrom(minimumSize: kS36, padding: kPAll6),
         // ),

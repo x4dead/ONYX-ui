@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 ///SizedBox const
 
 const kSBW15 = SizedBox(width: 15);
+const kSBW14 = SizedBox(width: 14);
 const kSBH25 = SizedBox(height: 25);
 const kSBH99 = SizedBox(height: 99);
 
@@ -16,6 +17,9 @@ const kSBW10 = SizedBox(width: 10);
 const kSBW12 = SizedBox(width: 12);
 const kSBW20 = SizedBox(width: 20);
 const kSBH20 = SizedBox(height: 20);
+const kSBH22 = SizedBox(height: 22);
+const kSBH18 = SizedBox(height: 18);
+const kSBH40 = SizedBox(height: 40);
 const kSBH15 = SizedBox(height: 15);
 const kSBH16 = SizedBox(height: 16);
 const kSBW16 = SizedBox(width: 16);
@@ -31,11 +35,13 @@ const kSBH96 = SizedBox(height: 96);
 const kNothing = SizedBox.shrink();
 
 ///Padding
-const kPH24V6 = EdgeInsets.symmetric(horizontal: 24, vertical: 6);
+const kPH20V12 = EdgeInsets.symmetric(horizontal: 20, vertical: 12);
+const kPH24V18 = EdgeInsets.symmetric(horizontal: 24, vertical: 18);
 const kPH21 = EdgeInsets.symmetric(horizontal: 21);
 const kPZero = EdgeInsets.zero;
 const kPAll6 = EdgeInsets.all(6);
 const kPAll20 = EdgeInsets.all(20);
+const kPV10 = EdgeInsets.symmetric(vertical: 10);
 const kPV15 = EdgeInsets.symmetric(vertical: 15);
 const kPH45V25 = EdgeInsets.symmetric(horizontal: 45, vertical: 25);
 const kPH20 = EdgeInsets.symmetric(horizontal: 20);

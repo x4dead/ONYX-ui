@@ -93,5 +93,8 @@ flutter:
           weight: 800
         - asset: assets/fonts/sf-pro-display-regular.OTF
           weight: 400
+        - asset: assets/fonts/sf-pro-display-medium.OTF
+          weight: 500
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -21,22 +21,25 @@ class SplashScreen extends ConsumerStatefulWidget {
 }
 
 class _SplashScreenConsumerState extends ConsumerState<SplashScreen> {
-  ValueNotifier isRusLang = ValueNotifier(true);
+  ValueNotifier<bool> isRusLang = ValueNotifier<bool>(true);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.colorWhite,
-      body: GestureDetector(
-        onTap: () {
-          context.go('/auth');
-        },
-        child: SafeArea(
+      body: SafeArea(
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            context.go('/auth');
+          },
           child: Padding(
             padding: kPH21,
             child: Column(
               children: [
                 context.height <= 610 ? kSBH45 : kSBH96,
-                Center(child: SvgPicture.asset(AppImages.onyx)),
+                Center(
+                    child: SizedBox(
+                        height: 47, child: SvgPicture.asset(AppImages.onyx))),
                 Text('payments', style: AppTextStyle.w600s39point47),
                 kSBH10,
                 Text('Управляйте вашим долгом!',
@@ -69,14 +72,21 @@ class _SplashScreenConsumerState extends ConsumerState<SplashScreen> {
                               title: languages[itemIndex],
                               isSelected: itemIndex == 0 ? v : !v,
                               onTap: () {
-                                if (!v) {
-                                  isRusLang.value = true;
+                                if (index == 0) {
+                                  if (v == false) {
+                                    isRusLang.value = true;
+                                    ref
+                                        .read(River.settingsPod.notifier)
+                                        .setLocale(L10n.all[itemIndex]);
+                                  }
                                 } else {
-                                  isRusLang.value = false;
+                                  if (v == true) {
+                                    isRusLang.value = false;
+                                    ref
+                                        .read(River.settingsPod.notifier)
+                                        .setLocale(L10n.all[itemIndex]);
+                                  }
                                 }
-                                ref
-                                    .read(River.settingsPod.notifier)
-                                    .setLocale(L10n.all[itemIndex]);
                               },
                             );
                           }
