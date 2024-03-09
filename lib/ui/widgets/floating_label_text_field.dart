@@ -103,7 +103,10 @@ class _FloatingLabelTextFieldState extends State<FloatingLabelTextField> {
 
     inputFormatters = widget.inputFormatters == null
         ? <TextInputFormatter>[]
-        : [FilteringTextInputFormatter.allow(widget.inputFormatters!)];
+        : [
+            FilteringTextInputFormatter.deny(RegExp(r'\s\s')),
+            FilteringTextInputFormatter.allow(widget.inputFormatters!),
+          ];
   }
 
   @override

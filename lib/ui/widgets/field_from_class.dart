@@ -1,10 +1,10 @@
 ﻿class FieldFormClass {
   FieldFormClass();
-  static RegExp regExpNumber = RegExp(r'^[0-9]');
+  static RegExp regExpNumber = RegExp(r'[0-9]');
   static RegExp regExpPassword =
       RegExp(r'^[A-Za-z0-9!@#\$&*~]+', unicode: true);
   static RegExp regExpEmail = RegExp(r'^[a-z0-9@._-]+');
-  static RegExp regExpName = RegExp(r'^[A-Za-zА-Яа-я]+', unicode: true);
+  static RegExp regExpName = RegExp(r'^[а-яА-ЯёЁa-zA-Z\s]*$');
 
   static String? validatorName(String? name, {bool? lastName = false}) {
     if (name!.length <= 1) {

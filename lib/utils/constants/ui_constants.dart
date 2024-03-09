@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:qaz_booking_ui/themes/colors/app_colors.dart';
-// import 'package:qaz_booking_ui/utils/resources/app_images.dart';
 
 ///SizedBox const
 
@@ -13,6 +11,7 @@ const kSBH50 = SizedBox(height: 50);
 const kSBH45 = SizedBox(height: 45);
 const kSBH10 = SizedBox(height: 10);
 const kSBH12 = SizedBox(height: 12);
+const kSBH13 = SizedBox(height: 13);
 const kSBW10 = SizedBox(width: 10);
 const kSBW12 = SizedBox(width: 12);
 const kSBW20 = SizedBox(width: 20);
@@ -48,7 +47,7 @@ const kPH20 = EdgeInsets.symmetric(horizontal: 20);
 const kPH20V18Dot5 = EdgeInsets.symmetric(horizontal: 20, vertical: 18.5);
 
 ///BorderRadius
-const Radius circleRadius12 = Radius.circular(12);
+// const Radius circleRadius12 = Radius.circular(12);
 
 ///Size
 const double bookedGuestSize = 46;
@@ -61,14 +60,6 @@ const kS36 = Size(36, 36);
 //         strokeAlign: BorderSide.strokeAlignInside));
 const allCircularRadius12 = BorderRadius.all(Radius.circular(12));
 
-// const List<(String, String)> menuButtons = [
-//   (AppImages.main, 'Главная'),
-//   (AppImages.home, 'Сдаваемые объекты'),
-//   (AppImages.list, 'Доп. услуги'),
-//   (AppImages.person, 'Профиль'),
-//   (AppImages.archive, 'Архив'),
-//   (AppImages.attachDocument, 'Информация'),
-// ];
 const List<String> shortWeekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 const languages = ['Русский язык', 'Қазақша'];
 // const List<String> weekDays = [

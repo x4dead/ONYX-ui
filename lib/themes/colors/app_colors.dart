@@ -13,6 +13,7 @@ abstract class AppColors {
   static const Color colorRed = Color(0xffFF1820);
   static const Color colorTertiaryRed = Color(0xffFFE3E3);
   static const Color colorGreen = Color(0xff00B749);
+  static const Color colorSearchCard = Color.fromRGBO(197, 207, 235, 0.25);
   static const LinearGradient gradienSupport = LinearGradient(
     colors: [
       Color(0xffF6E7FF),

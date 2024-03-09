@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/modules/signal_service/river/river.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/themes/text_style/text_style.dart';
@@ -85,7 +86,7 @@ class _ConfirmNumberViewWidgetConsumerState
                     FilteringTextInputFormatter.allow(
                         FieldFormClass.regExpNumber)
                   ],
-                  onChanged: (value) {
+                  onChanged: (value) async {
                     final String code =
                         "${_controllers[0].text}${_controllers[1].text}${_controllers[2].text}${_controllers[3].text}";
                     if (i < 3 && code.length < 4 && value.isNotEmpty) {
@@ -102,21 +103,16 @@ class _ConfirmNumberViewWidgetConsumerState
                     } else if (code.length == 4) {
                       _focusNodes[i].unfocus();
 
-                      ///TODO: CHECH CODE
+                      ///TODO: CHECK CODE
+
                       showDialog(
+                          barrierColor: Colors.black26,
                           context: context,
-                          builder: (context) => Center(
-                                child: Dialog(
-                                  child: Center(
-                                      child: Column(
-                                    children: [
-                                      CupertinoActivityIndicator(),
-                                      kSBH16,
-                                      Text(code),
-                                    ],
-                                  )),
-                                ),
+                          builder: (context) => const Center(
+                                child: CupertinoActivityIndicator(),
                               ));
+                      await Future.delayed(const Duration(seconds: 2))
+                          .then((value) => context.go('/news'));
                     }
                   },
                   focusNode: _focusNodes[i],

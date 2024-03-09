@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/ui/pages/auth_page/auth_page.dart';
+import 'package:onyx_ui/ui/pages/news_page/news_page.dart';
 import 'package:onyx_ui/ui/pages/splash_screen/splash_screen.dart';
 import 'package:onyx_ui/utils/router/fade_transition.dart';
 // import 'package:qaz_booking_ui/model/guest_model.dart';
@@ -71,13 +72,13 @@ class AppRouter {
         //     }
         //   },
         // ),
-        // GoRoute(
-        //   path: '/more_services',
-        //   pageBuilder: (context, state) {
-        //     return FadeTransitionPage(
-        //         child: MoreServicesPage(routeState: state), key: state.pageKey);
-        //   },
-        // ),
+        GoRoute(
+          path: '/news',
+          pageBuilder: (context, state) {
+            return FadeTransitionPage(
+                child: NewsPage(routeState: state), key: state.pageKey);
+          },
+        ),
         // GoRoute(
         //   path: '/objects_for_booking',
         //   pageBuilder: (context, state) {

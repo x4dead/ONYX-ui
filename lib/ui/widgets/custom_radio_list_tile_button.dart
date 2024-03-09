@@ -28,11 +28,11 @@ class CustomRadioListTileButton extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       decoration: const BoxDecoration(
         color: AppColors.colorGray80,
-        borderRadius: BorderRadius.all(circleRadius12),
+        borderRadius: allCircularRadius12,
       ),
       child: SplashButton(
         onTap: onTap ?? () {},
-        child: Container(
+        child: Padding(
           padding: padding ?? kPH24V18,
           child: Center(
             child: Row(

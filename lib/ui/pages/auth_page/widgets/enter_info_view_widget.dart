@@ -1,4 +1,5 @@
 ﻿import 'package:flutter/material.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/modules/signal_service/river/river.dart';
@@ -7,6 +8,7 @@ import 'package:onyx_ui/themes/text_style/text_style.dart';
 import 'package:onyx_ui/ui/pages/auth_page/auth_page.dart';
 import 'package:onyx_ui/ui/widgets/custom_button.dart';
 import 'package:onyx_ui/ui/widgets/custom_radio_list_tile_button.dart';
+import 'package:onyx_ui/ui/widgets/field_from_class.dart';
 import 'package:onyx_ui/ui/widgets/floating_label_text_field.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/bool.dart';
@@ -25,7 +27,7 @@ class _EnterInfoViewWidgetConsumerState
     extends ConsumerState<EnterInfoViewWidget> {
   final fullNameController = TextEditingController();
   final iNNController = TextEditingController();
-  final phoneNumberController = TextEditingController();
+  final phoneController = MaskedTextController(mask: '+7 (000) 000-00-00');
   ValueNotifier<bool> isUserAgreementAccepted = ValueNotifier<bool>(false);
   @override
   Widget build(BuildContext context) {
@@ -64,6 +66,7 @@ class _EnterInfoViewWidgetConsumerState
             : kSBH40,
         FloatingLabelTextField(
             keyboardType: TextInputType.name,
+            inputFormatters: FieldFormClass.regExpName,
             hintText: localization.enterFullName,
             controller: fullNameController,
             floatingLabelText: localization.fullName),
@@ -75,6 +78,7 @@ class _EnterInfoViewWidgetConsumerState
             : kSBH25,
         FloatingLabelTextField(
             keyboardType: TextInputType.number,
+            inputFormatters: FieldFormClass.regExpNumber,
             hintText: localization.enterInn,
             controller: iNNController,
             floatingLabelText: localization.iin),
@@ -86,8 +90,9 @@ class _EnterInfoViewWidgetConsumerState
             : kSBH25,
         FloatingLabelTextField(
             keyboardType: TextInputType.phone,
+            inputFormatters: FieldFormClass.regExpNumber,
             hintText: localization.enterPhoneNumber,
-            controller: phoneNumberController,
+            controller: phoneController,
             floatingLabelText: localization.phoneNumber),
         context.height <= 596
             ? context.height <= 540
