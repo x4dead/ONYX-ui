@@ -1,11 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:onyx_ui/utils/constants/ui_constants.dart';
+import 'package:onyx_ui/utils/extensions/context_localization.dart';
+import 'package:onyx_ui/utils/user_pref.dart';
 
 class Converting {
-  // static String getMessageDate(DateTime createdDate) {
-  //   final minute = createdDate.minute.toString().padLeft(2, '0');
-  //   return "${createdDate.hour}:$minute";
-  // }
+  static String getNewsDate(DateTime postDate, BuildContext context) {
+    final now = DateTime.now();
+
+    final difference = now.difference(postDate);
+    String date = '';
+    final today = postDate.month == now.month &&
+        postDate.day == now.day &&
+        postDate.year == now.year;
+    final localization = context.localization;
+    if (difference.inDays >= 1 &&
+        difference.inDays != 7 &&
+        postDate.month == now.month) {
+      date = ('${difference.inDays} ${localization.day}');
+    } else if (difference.inDays == 7) {
+      date = (localization.week_ago);
+    } else if (difference.inDays == 14) {
+      date = (localization.weeks2_ago);
+    } else if (postDate.month == now.month &&
+        now.year == postDate.year &&
+        !today) {
+      final month = UserPref.getLocale == "ru"
+          ? middleMonthRu[postDate.month - 1]
+          : middleMonthKz[postDate.month - 1];
+      date = "${postDate.day} ${month.toLowerCase()} ";
+    } else if (now.year > postDate.year) {
+      final month = UserPref.getLocale == "ru"
+          ? middleMonthRu[postDate.month - 1]
+          : middleMonthKz[postDate.month - 1];
+      date = "${month.toLowerCase()} ${postDate.day}, ${postDate.year}";
+    } else if (difference.inHours >= 1 && today) {
+      date = ('${difference.inHours} ${localization.hour}');
+    } else if (difference.inMinutes >= 1 && today) {
+      date = ('${difference.inMinutes} ${localization.minute}');
+    } else {
+      date = (localization.now);
+    }
+    return date;
+  }
 
   static String getShortUserName(
       {(String, String)? firstAndLastName, String? fullName}) {

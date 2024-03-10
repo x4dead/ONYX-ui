@@ -28,5 +28,11 @@
   "questionsAnswers": "Сұрақтар мен жауаптар",
   "safety": "Қауіпсіздік",
   "notification": "Хабарландырулар",
-  "push_notification": "Push хабарландырулары"
+  "push_notification": "Push хабарландырулары",
+  "now": "Жана ғана",
+  "weeks2_ago":"2 апта бұрын",
+  "week_ago":"Бір апта бұрын",
+  "day":"күн",
+  "hour":"сағат",
+  "minute":"минут"
 }

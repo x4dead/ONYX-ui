@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 const kSBW15 = SizedBox(width: 15);
 const kSBW14 = SizedBox(width: 14);
+const kSBH14 = SizedBox(height: 14);
 const kSBH25 = SizedBox(height: 25);
 const kSBH99 = SizedBox(height: 99);
 const spacer = Spacer();
@@ -35,6 +36,7 @@ const kNothing = SizedBox.shrink();
 
 ///Padding
 const kPH20V12 = EdgeInsets.symmetric(horizontal: 20, vertical: 12);
+const kPH12 = EdgeInsets.symmetric(horizontal: 12);
 const kPH24V18 = EdgeInsets.symmetric(horizontal: 24, vertical: 18);
 const kPH21 = EdgeInsets.symmetric(horizontal: 21);
 const kPZero = EdgeInsets.zero;
@@ -85,17 +87,31 @@ const languages = ['Русский язык', 'Қазақша'];
 //   'Ноябрь',
 //   'Декабрь',
 // ];
-// const List<String> middleMonth = [
-//   "Янв",
-//   "Фев",
-//   "Мар",
-//   "Апр",
-//   "Май",
-//   "Июн",
-//   "Июл",
-//   "Авг",
-//   "Сен",
-//   "Окт",
-//   "Ноя",
-//   "Дек",
-// ];
+const List<String> middleMonthRu = [
+  "Янв",
+  "Фев",
+  "Мар",
+  "Апр",
+  "Май",
+  "Июн",
+  "Июл",
+  "Авг",
+  "Сен",
+  "Окт",
+  "Ноя",
+  "Дек",
+];
+const List<String> middleMonthKz = [
+  "Қаң",
+  "Ақп",
+  "Нау",
+  "Сәу",
+  "Мам",
+  "Мау",
+  "Шіл",
+  "Там",
+  "Қыр",
+  "Қаз",
+  "қар",
+  "Жел",
+];

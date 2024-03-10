@@ -4,8 +4,10 @@ abstract class AppImages {
 
   static const close = 'assets/svg/close.svg';
   static const closeFill = 'assets/svg/close_fill.svg';
-  // static const doneFill = 'assets/svg/done_fill.svg';
-  // static const done = 'assets/svg/done.svg';
+  static const heartFill = 'assets/svg/heart_fill.svg';
+  static const heart = 'assets/svg/heart.svg';
+  static const share = 'assets/svg/share.svg';
+  static const comment = 'assets/svg/comment.svg';
   static const flag = 'assets/svg/flag.svg';
   static const menu = 'assets/svg/menu.svg';
   static const news = 'assets/svg/news.svg';

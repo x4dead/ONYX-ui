@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/themes/text_style/text_style.dart';
+import 'package:onyx_ui/ui/pages/news_page/data.dart';
+import 'package:onyx_ui/ui/pages/news_page/widgets/news_card.dart';
 import 'package:onyx_ui/ui/widgets/custom_app_bar.dart';
 import 'package:onyx_ui/ui/widgets/drawer_menu.dart';
 import 'package:onyx_ui/ui/widgets/splash_button.dart';
@@ -76,6 +78,18 @@ class _NewsPageState extends State<NewsPage> {
                   ),
                 ),
               ),
+              Flexible(
+                  child: CustomScrollView(
+                slivers: [
+                  SliverList.builder(
+                      itemCount: news.length,
+                      itemBuilder: (context, index) {
+                        return NewsCard(
+                          model: news[index],
+                        );
+                      }),
+                ],
+              ))
             ],
           ),
         ),

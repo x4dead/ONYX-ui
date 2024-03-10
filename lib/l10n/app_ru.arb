@@ -28,5 +28,11 @@
   "questionsAnswers": "Вопросы и ответы",
   "safety": "Безопасность",
   "notification": "Уведомления",
-  "push_notification": "Push-уведомления"
+  "push_notification": "Push-уведомления",
+  "now": "Только что",
+  "weeks2_ago":"2 недели назад",
+  "week_ago":"Неделю назад",
+  "day":"день",
+  "hour":"час",
+  "minute":"минут"
 }
