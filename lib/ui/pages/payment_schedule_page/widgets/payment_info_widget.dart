@@ -1,12 +1,4 @@
-﻿import 'package:flutter/cupertino.dart';
-import 'package:onyx_ui/themes/colors/app_colors.dart';
-import 'package:onyx_ui/themes/text_style/text_style.dart';
-import 'package:onyx_ui/ui/pages/news_page/data.dart';
-import 'package:onyx_ui/ui/widgets/custom_button.dart';
-import 'package:onyx_ui/utils/constants/ui_constants.dart';
-import 'package:onyx_ui/utils/extensions/context_localization.dart';
-import 'package:onyx_ui/utils/extensions/converting.dart';
-import 'package:onyx_ui/utils/extensions/media_query.dart';
+﻿part of "../payment_schedule_page.dart";
 
 class PaymentInfoWidget extends StatelessWidget {
   const PaymentInfoWidget({super.key});

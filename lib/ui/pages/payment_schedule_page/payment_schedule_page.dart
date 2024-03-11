@@ -2,14 +2,21 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
-import 'package:onyx_ui/ui/pages/payment_schedule_page/widgets/hor_buttons_widget.dart';
-import 'package:onyx_ui/ui/pages/payment_schedule_page/widgets/payment_info_widget.dart';
+import 'package:onyx_ui/themes/text_style/text_style.dart';
+import 'package:onyx_ui/ui/pages/news_page/data.dart';
+
 import 'package:onyx_ui/ui/widgets/custom_app_bar.dart';
+import 'package:onyx_ui/ui/widgets/custom_button.dart';
 import 'package:onyx_ui/ui/widgets/drawer_menu.dart';
+import 'package:onyx_ui/ui/widgets/splash_button.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/context_localization.dart';
+import 'package:onyx_ui/utils/extensions/converting.dart';
 import 'package:onyx_ui/utils/extensions/media_query.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
+
+part 'widgets/hor_buttons_widget.dart';
+part 'widgets/payment_info_widget.dart';
 
 class PaymentSchedulePage extends StatelessWidget {
   const PaymentSchedulePage({super.key, this.routeState});

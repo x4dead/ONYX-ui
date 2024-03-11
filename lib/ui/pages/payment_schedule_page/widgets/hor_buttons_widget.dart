@@ -1,11 +1,4 @@
-﻿import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:onyx_ui/themes/colors/app_colors.dart';
-import 'package:onyx_ui/themes/text_style/text_style.dart';
-import 'package:onyx_ui/ui/widgets/splash_button.dart';
-import 'package:onyx_ui/utils/constants/ui_constants.dart';
-import 'package:onyx_ui/utils/extensions/context_localization.dart';
-import 'package:onyx_ui/utils/resources/app_images.dart';
+﻿part of "../payment_schedule_page.dart";
 
 class HorButtonsWidget extends StatelessWidget {
   const HorButtonsWidget({
