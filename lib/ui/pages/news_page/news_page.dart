@@ -1,9 +1,12 @@
-﻿import 'package:flutter/material.dart';
+﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:onyx_ui/model/news_card_model.dart';
+import 'package:onyx_ui/modules/signal_service/river/river.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/themes/text_style/text_style.dart';
-import 'package:onyx_ui/ui/pages/news_page/data.dart';
 import 'package:onyx_ui/ui/pages/news_page/widgets/news_card.dart';
 import 'package:onyx_ui/ui/widgets/custom_app_bar.dart';
 import 'package:onyx_ui/ui/widgets/drawer_menu.dart';
@@ -12,16 +15,18 @@ import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
 
-class NewsPage extends StatefulWidget {
+class NewsPage extends ConsumerStatefulWidget {
   const NewsPage({super.key, this.routeState});
   final GoRouterState? routeState;
 
   @override
-  State<NewsPage> createState() => _NewsPageState();
+  ConsumerState<NewsPage> createState() => _NewsPageState();
 }
 
-class _NewsPageState extends State<NewsPage> {
-  ValueNotifier position = ValueNotifier(0);
+class _NewsPageState extends ConsumerState<NewsPage> {
+  final getNews = FutureProvider<List<NewsCardModel>>(
+      (ref) async => await ref.read(River.newsPod.notifier).getNews());
+  // ValueNotifier position = ValueNotifier(0);
   final globalKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -79,17 +84,46 @@ class _NewsPageState extends State<NewsPage> {
                 ),
               ),
               Flexible(
-                  child: CustomScrollView(
-                slivers: [
-                  SliverList.builder(
-                      itemCount: news.length,
-                      itemBuilder: (context, index) {
-                        return NewsCard(
-                          model: news[index],
-                        );
-                      }),
-                ],
-              ))
+                  child: ref.watch(getNews).when(
+                        data: (data) {
+                          List<NewsCardModel> _news =
+                              ref.watch(River.newsPod).news ?? [];
+                          if (_news.isEmpty) {
+                            return Center(
+                              child: Text(
+                                'Пока что для вас у нас нету новостей',
+                                textAlign: TextAlign.center,
+                                style: AppTextStyle.w600s15,
+                              ),
+                            );
+                          }
+                          return CustomScrollView(
+                            slivers: [
+                              SliverList.builder(
+                                  itemCount: _news.length,
+                                  itemBuilder: (context, index) {
+                                    return NewsCard(
+                                      model: _news[index],
+                                    );
+                                  }),
+                            ],
+                          );
+                        },
+                        skipLoadingOnRefresh: false,
+                        skipLoadingOnReload: false,
+                        error: (error, stackTrace) {
+                          return Center(
+                            child: Text(
+                              'Ошибка получения новостей',
+                              textAlign: TextAlign.center,
+                              style: AppTextStyle.w600s15,
+                            ),
+                          );
+                        },
+                        loading: () {
+                          return Center(child: CupertinoActivityIndicator());
+                        },
+                      ))
             ],
           ),
         ),

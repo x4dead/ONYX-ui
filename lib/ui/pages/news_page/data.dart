@@ -8,7 +8,7 @@ const Duration minutes59 = Duration(minutes: 59);
 const Duration minutes60 = Duration(minutes: 60);
 const Duration seconds30 = Duration(seconds: 30);
 const Duration hours23 = Duration(hours: 23);
-List<NewsCardModel> news = [
+List<NewsCardModel> newsData = [
   NewsCardModel(
       commentsCount: 17,
       likesCount: 6,
