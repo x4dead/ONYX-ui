@@ -2,6 +2,7 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
+import 'package:onyx_ui/ui/pages/payment_schedule_page/widgets/hor_buttons_widget.dart';
 import 'package:onyx_ui/ui/pages/payment_schedule_page/widgets/payment_info_widget.dart';
 import 'package:onyx_ui/ui/widgets/custom_app_bar.dart';
 import 'package:onyx_ui/ui/widgets/drawer_menu.dart';
@@ -40,7 +41,11 @@ class PaymentSchedulePage extends StatelessWidget {
             bottom: 10,
             top: 10),
         child: const CustomScrollView(
-          slivers: [SliverToBoxAdapter(child: PaymentInfoWidget())],
+          slivers: [
+            SliverToBoxAdapter(child: PaymentInfoWidget()),
+            SliverToBoxAdapter(child: kSBH15),
+            SliverToBoxAdapter(child: HorButtonsWidget())
+          ],
         ),
       ),
     );

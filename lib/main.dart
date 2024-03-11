@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:onyx_ui/l10n/l10n.dart';
 import 'package:onyx_ui/modules/signal_service/river/river.dart';
+import 'package:onyx_ui/utils/extensions/no_thumb_scroll_behavior.dart';
 import 'package:onyx_ui/utils/router/router.dart';
 import 'package:onyx_ui/utils/user_pref.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -22,6 +23,7 @@ class MyApp extends ConsumerWidget {
     final router = AppRouter.router;
     return MaterialApp.router(
       title: 'ONYX',
+      scrollBehavior: NoThumbScrollBehavior().copyWith(scrollbars: false),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
