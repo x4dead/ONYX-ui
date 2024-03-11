@@ -15,6 +15,9 @@ import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
 
+final getNews = FutureProvider<List<NewsCardModel>>(
+    (ref) async => await ref.read(River.newsPod.notifier).getNews());
+
 class NewsPage extends ConsumerStatefulWidget {
   const NewsPage({super.key, this.routeState});
   final GoRouterState? routeState;
@@ -24,9 +27,6 @@ class NewsPage extends ConsumerStatefulWidget {
 }
 
 class _NewsPageState extends ConsumerState<NewsPage> {
-  final getNews = FutureProvider<List<NewsCardModel>>(
-      (ref) async => await ref.read(River.newsPod.notifier).getNews());
-  // ValueNotifier position = ValueNotifier(0);
   final globalKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -85,6 +85,8 @@ class _NewsPageState extends ConsumerState<NewsPage> {
               ),
               Flexible(
                   child: ref.watch(getNews).when(
+                        skipLoadingOnRefresh: false,
+                        // skipLoadingOnReload: false,
                         data: (data) {
                           List<NewsCardModel> _news =
                               ref.watch(River.newsPod).news ?? [];
@@ -109,8 +111,6 @@ class _NewsPageState extends ConsumerState<NewsPage> {
                             ],
                           );
                         },
-                        skipLoadingOnRefresh: false,
-                        skipLoadingOnReload: false,
                         error: (error, stackTrace) {
                           return Center(
                             child: Text(

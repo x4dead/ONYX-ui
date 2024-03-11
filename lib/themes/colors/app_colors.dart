@@ -16,9 +16,11 @@ abstract class AppColors {
   static const Color colorSearchCard = Color.fromRGBO(197, 207, 235, 0.25);
   static const LinearGradient gradienSupport = LinearGradient(
     colors: [
-      Color(0xffF6E7FF),
-      Color(0xff57FFFF),
+      Color.fromRGBO(0, 246, 231, 1),
+      Color.fromRGBO(0, 87, 255, 1),
     ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
   );
   static const LinearGradient gradienCurrentDebt = LinearGradient(
     begin: Alignment.bottomLeft,
@@ -33,12 +35,16 @@ abstract class AppColors {
       Color.fromRGBO(0, 246, 84, 1),
       Color.fromRGBO(0, 175, 122, 1),
     ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
   );
   static const LinearGradient gradienSafety = LinearGradient(
     colors: [
       Color.fromRGBO(255, 168, 0, 1),
       Color.fromRGBO(255, 61, 0, 1),
     ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
   );
 
   static const Color colorTransparent = Colors.transparent;

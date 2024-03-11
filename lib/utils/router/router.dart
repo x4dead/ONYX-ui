@@ -3,9 +3,12 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/ui/pages/auth_page/auth_page.dart';
 import 'package:onyx_ui/ui/pages/news_page/news_page.dart';
 import 'package:onyx_ui/ui/pages/splash_screen/splash_screen.dart';
+import 'package:onyx_ui/ui/pages/support_page/support_page.dart';
+import 'package:onyx_ui/ui/widgets/custom_app_bar.dart';
 import 'package:onyx_ui/utils/router/fade_transition.dart';
 // import 'package:qaz_booking_ui/model/guest_model.dart';
 // import 'package:qaz_booking_ui/model/object_to_book_model.dart';
@@ -135,20 +138,20 @@ class AppRouter {
         //         child: ProfilePage(routeState: state), key: state.pageKey);
         //   },
         // ),
-        // GoRoute(
-        //   name: 'information',
-        //   path: '/information',
-        //   pageBuilder: (context, state) {
-        //     return FadeTransitionPage(
-        //         child: InformationPage(routeState: state), key: state.pageKey);
-        //   },
-        // ),
+        GoRoute(
+          name: 'support',
+          path: '/support',
+          pageBuilder: (context, state) {
+            return FadeTransitionPage(
+                child: SupportPage(routeState: state), key: state.pageKey);
+          },
+        ),
       ],
       errorBuilder: (context, state) => Scaffold(
-          // backgroundColor: AppColors.colorWhite,
-          // appBar: CustomAppBar(
-          // title: 'Not found page',
-          // leading: (null, () => context.go('/main'))),
+          backgroundColor: AppColors.colorWhite,
+          appBar: CustomAppBar(
+          title: 'Not found page',
+          leading: (null, () => context.go('/auth'))),
           body: const Center(child: Text('Not found route'))));
 }
 
