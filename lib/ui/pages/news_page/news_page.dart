@@ -28,6 +28,36 @@ class NewsPage extends ConsumerStatefulWidget {
 
 class _NewsPageState extends ConsumerState<NewsPage> {
   final globalKey = GlobalKey<ScaffoldState>();
+  int offset = 0;
+  final isLoading = StateProvider<bool>((ref) => false);
+  late ScrollController scrollController;
+  final int limit = 10;
+  @override
+  void initState() {
+    super.initState();
+
+    scrollController = ScrollController()..addListener(scrollLimit);
+  }
+
+  @override
+  void dispose() {
+    scrollController.removeListener(scrollLimit);
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  Future<void> scrollLimit() async {
+    if (scrollController.position.extentAfter < 50 &&
+        ref.watch(isLoading) != true) {
+      ref.read(isLoading.notifier).state = true;
+      offset += limit;
+      try {
+        await ref.read(River.newsPod.notifier).getNewNews(offset);
+      } catch (e) {}
+
+      ref.read(isLoading.notifier).state = false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +130,7 @@ class _NewsPageState extends ConsumerState<NewsPage> {
                             );
                           }
                           return CustomScrollView(
+                            controller: scrollController,
                             slivers: [
                               SliverList.builder(
                                   itemCount: _news.length,
@@ -108,6 +139,13 @@ class _NewsPageState extends ConsumerState<NewsPage> {
                                       model: _news[index],
                                     );
                                   }),
+                              if (ref.watch(isLoading) == true)
+                                const SliverToBoxAdapter(
+                                  child: Padding(
+                                    padding: kPAll10,
+                                    child: CupertinoActivityIndicator(),
+                                  ),
+                                )
                             ],
                           );
                         },

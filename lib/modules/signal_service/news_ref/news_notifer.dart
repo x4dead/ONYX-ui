@@ -22,4 +22,20 @@ class NewsNotifer extends StateNotifier<NewsStateRef> {
     state = state.copyWith(news: news);
     return news;
   }
+
+  Future<List<NewsCardModel>> getNewNews(int offset) async {
+    List<NewsCardModel> newNews = [];
+
+    try {
+      await Future.delayed(const Duration(seconds: 5));
+
+      ///TODO: Получение карточек новостей, lazy load
+      newNews = newsData.getRange(offset, offset + 10).toList();
+    } catch (e) {
+      throw '$e';
+    }
+
+    state = state.copyWith(news: [...state.news ?? [], ...newNews]);
+    return newNews;
+  }
 }
