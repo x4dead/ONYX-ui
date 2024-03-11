@@ -52,19 +52,17 @@ class Converting {
     final today = paymentDate.month == now.month &&
         paymentDate.day == now.day &&
         paymentDate.year == now.year;
-    final tomorrow = difference.inDays == 0;
+    final tomorrow = now.day < paymentDate.day;
     final localization = ctx.localization;
     final month = UserPref.getLocale == "ru"
         ? middleMonthRu[paymentDate.month - 1]
         : middleMonthKz[paymentDate.month - 1];
     final DateFormat formatter = DateFormat("dd.MM.yyyy", UserPref.getLocale);
     //
-    if (
-        // paymentDate.month == now.month &&
-        now.year == paymentDate.year &&
-            !today &&
-            !difference.inDays.isNegative &&
-            !tomorrow) {
+    if (now.year == paymentDate.year &&
+        !today &&
+        !difference.inDays.isNegative &&
+        !tomorrow) {
       ///Отображаем день и месяц если разница в днях положительна
 
       date = "${paymentDate.day} ${month.toLowerCase()} ";
