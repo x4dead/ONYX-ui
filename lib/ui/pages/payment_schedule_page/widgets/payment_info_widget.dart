@@ -1,5 +1,7 @@
 ﻿part of "../payment_schedule_page.dart";
 
+final paymentDate = DateTime.now().add(day1 * 1);
+
 class PaymentInfoWidget extends StatelessWidget {
   const PaymentInfoWidget({super.key});
 
@@ -12,7 +14,6 @@ class PaymentInfoWidget extends StatelessWidget {
       localization.balanceOwed
     ];
     final now = DateTime.now();
-    final paymentDate = DateTime.now().add(day1 * 1);
     final difference = paymentDate.difference(now);
     return Container(
       padding: kPH14T16B18.copyWith(

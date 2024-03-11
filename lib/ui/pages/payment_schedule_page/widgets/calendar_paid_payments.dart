@@ -1,7 +1,7 @@
 ﻿part of "../payment_schedule_page.dart";
 
-class HorButtonsWidget extends StatelessWidget {
-  const HorButtonsWidget({
+class CalendarPaidPaymentsButtons extends StatelessWidget {
+  const CalendarPaidPaymentsButtons({
     super.key,
   });
 

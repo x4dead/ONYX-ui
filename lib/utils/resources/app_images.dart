@@ -24,4 +24,5 @@ abstract class AppImages {
   static const time = 'assets/svg/time.svg';
   static const doneNotDone = 'assets/svg/done&notdone.svg';
   static const document = 'assets/svg/document.svg';
+  static const calendar = 'assets/svg/calendar.svg';
 }
