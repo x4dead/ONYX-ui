@@ -95,7 +95,7 @@ class DrawerMenu extends StatelessWidget {
                         (context, index) => _MenuButton(
                             () => switch (index) {
                                   0 => {goToPage('main')},
-                                  1 => {goToPage('objects_for_booking')},
+                                  1 => {goToPage('payment_schedule')},
                                   2 => {goToPage('news')},
                                   3 => {goToPage('support')},
                                   4 => {goToPage('settings')},

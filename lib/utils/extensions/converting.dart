@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/user_pref.dart';
@@ -43,6 +44,53 @@ class Converting {
     return date;
   }
 
+  static String getPaymentDate(DateTime paymentDate, BuildContext ctx) {
+    final now = DateTime.now();
+
+    final difference = paymentDate.difference(now);
+    String date = '';
+    final today = paymentDate.month == now.month &&
+        paymentDate.day == now.day &&
+        paymentDate.year == now.year;
+    final tomorrow = difference.inDays == 0;
+    final localization = ctx.localization;
+    final month = UserPref.getLocale == "ru"
+        ? middleMonthRu[paymentDate.month - 1]
+        : middleMonthKz[paymentDate.month - 1];
+    final DateFormat formatter = DateFormat("dd.MM.yyyy", UserPref.getLocale);
+    //
+    if (
+        // paymentDate.month == now.month &&
+        now.year == paymentDate.year &&
+            !today &&
+            !difference.inDays.isNegative &&
+            !tomorrow) {
+      ///Отображаем день и месяц если разница в днях положительна
+
+      date = "${paymentDate.day} ${month.toLowerCase()} ";
+    } else if (now.year == paymentDate.year &&
+        difference.inDays.isNegative &&
+        difference.inDays != -1) {
+      ///Отображаем день и месяц если разница в днях отрицательна
+
+      date = "${paymentDate.day} ${month.toLowerCase()} ";
+    } else if (now.year != paymentDate.year) {
+      ///Отображаем месяц, день и год
+
+      date = formatter.format(paymentDate);
+    } else if (tomorrow) {
+      ///Отображаем "Завтра"
+      date = localization.tomorrow;
+    } else if (today == true) {
+      ///Отображаем "Сегодня"
+      date = localization.today;
+    } else if (difference.inDays == -1) {
+      ///Отображаем "Вчера"
+      date = (localization.yesterday);
+    }
+    return date;
+  }
+
   static String getShortUserName(
       {(String, String)? firstAndLastName, String? fullName}) {
     if (fullName != null && firstAndLastName == null) {
@@ -70,6 +118,22 @@ class Converting {
         '${cleanedPhoneNumber.substring(4, 7)}-'
         '${cleanedPhoneNumber.substring(7, 9)}-'
         '${cleanedPhoneNumber.substring(9, 11)}';
+  }
+
+  static String formatNumber(String input) {
+    // Удаляем все запятые из строки (если они есть)
+    String cleanedInput = input.replaceAll(",", "");
+
+    // Преобразуем строку в число
+    int number = int.tryParse(cleanedInput) ?? 0;
+
+    // Форматируем число с пробелами между группами цифр
+    String formattedNumber = number.toString().replaceAllMapped(
+          RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+          (Match match) => '${match[1]} ',
+        );
+
+    return formattedNumber;
   }
 
   // static String getUserLastActive(String updateDate) {

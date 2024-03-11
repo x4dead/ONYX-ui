@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/ui/pages/auth_page/auth_page.dart';
 import 'package:onyx_ui/ui/pages/news_page/news_page.dart';
+import 'package:onyx_ui/ui/pages/payment_schedule_page/payment_schedule_page.dart';
 import 'package:onyx_ui/ui/pages/settings_page/settings_page.dart';
 import 'package:onyx_ui/ui/pages/splash_screen/splash_screen.dart';
 import 'package:onyx_ui/ui/pages/support_page/support_page.dart';
@@ -83,14 +84,14 @@ class AppRouter {
                 child: NewsPage(routeState: state), key: state.pageKey);
           },
         ),
-        // GoRoute(
-        //   path: '/objects_for_booking',
-        //   pageBuilder: (context, state) {
-        //     return FadeTransitionPage(
-        //         child: ObjectsForBookingPage(routeState: state),
-        //         key: state.pageKey);
-        //   },
-        // ),
+        GoRoute(
+          path: '/payment_schedule',
+          pageBuilder: (context, state) {
+            return FadeTransitionPage(
+                child: PaymentSchedulePage(routeState: state),
+                key: state.pageKey);
+          },
+        ),
         GoRoute(
           name: 'settings',
           path: '/settings',

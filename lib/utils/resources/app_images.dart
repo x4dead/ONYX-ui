@@ -22,4 +22,6 @@ abstract class AppImages {
   static const whatsApp = 'assets/svg/whats_app.svg';
   static const onyx = 'assets/svg/onyx.svg';
   static const time = 'assets/svg/time.svg';
+  static const doneNotDone = 'assets/svg/done&notdone.svg';
+  static const document = 'assets/svg/document.svg';
 }

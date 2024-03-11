@@ -34,5 +34,15 @@
   "week_ago":"Бір апта бұрын",
   "day":"күн",
   "hour":"сағат",
-  "minute":"минут"
+  "minute":"минут",
+  "pay":"Төлеу",
+  "balanceOwed":"Қарыз\nбаланс",
+  "paymentAmount":"Төлем\nсомасы",
+  "paymentDate":"Төлеу\nкүні",
+  "earlyRepayment":"Мерзімінен бұрын өтеу",
+  "accountDetails":"Есептік жазба мәліметтері",
+  "payments":"төлемдер",
+  "today":"Бүгін",
+  "yesterday":"Кеше",
+  "tomorrow":"Ертең"
 }
