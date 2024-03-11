@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/ui/pages/auth_page/auth_page.dart';
 import 'package:onyx_ui/ui/pages/news_page/news_page.dart';
+import 'package:onyx_ui/ui/pages/settings_page/settings_page.dart';
 import 'package:onyx_ui/ui/pages/splash_screen/splash_screen.dart';
 import 'package:onyx_ui/ui/pages/support_page/support_page.dart';
 import 'package:onyx_ui/ui/widgets/custom_app_bar.dart';
@@ -90,14 +91,14 @@ class AppRouter {
         //         key: state.pageKey);
         //   },
         // ),
-        // GoRoute(
-        //   name: 'archive',
-        //   path: '/archive',
-        //   pageBuilder: (context, state) {
-        //     return FadeTransitionPage(
-        //         child: ArchivePage(routeState: state), key: state.pageKey);
-        //   },
-        // ),
+        GoRoute(
+          name: 'settings',
+          path: '/settings',
+          pageBuilder: (context, state) {
+            return FadeTransitionPage(
+                child: SettingsPage(routeState: state), key: state.pageKey);
+          },
+        ),
         // GoRoute(
         //   name: 'booking_object',
         //   path: '/booking_object',
@@ -150,8 +151,8 @@ class AppRouter {
       errorBuilder: (context, state) => Scaffold(
           backgroundColor: AppColors.colorWhite,
           appBar: CustomAppBar(
-          title: 'Not found page',
-          leading: (null, () => context.go('/auth'))),
+              title: 'Not found page',
+              leading: (null, () => context.go('/auth'))),
           body: const Center(child: Text('Not found route'))));
 }
 

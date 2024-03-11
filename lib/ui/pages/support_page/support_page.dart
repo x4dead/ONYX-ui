@@ -23,12 +23,16 @@ class _SupportPageState extends State<SupportPage> {
   @override
   Widget build(BuildContext context) {
     final localization = context.localization;
-    Future<void> openWhatsApp(String phoneNumber) async {
-      final url = 'https://wa.me/$phoneNumber';
-      if (await canLaunchUrlString(url)) {
+    Future<void> openWhatsApp(String phoneNumber, {String? message}) async {
+      String url = 'https://wa.me/$phoneNumber';
+      if (message != null) {
+        url = "$url?text=$message";
+      }
+
+      try {
         await launchUrlString(url);
-      } else {
-        print('Не удалось открыть WhatsApp');
+      } catch (e) {
+        throw 'Не удалось открыть WhatsApp';
       }
     }
 
@@ -62,7 +66,7 @@ class _SupportPageState extends State<SupportPage> {
           children: List.generate(3, (index) {
             return SupportMessageCard(
               onTap: () async {
-                await openWhatsApp("+996705440722");
+                await openWhatsApp("+705440722", message: 'Здравствуйте');
               },
               info: (
                 supportInfo[index].$1,

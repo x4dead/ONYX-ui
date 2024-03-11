@@ -23,10 +23,10 @@ class NewsPage extends ConsumerStatefulWidget {
   final GoRouterState? routeState;
 
   @override
-  ConsumerState<NewsPage> createState() => _NewsPageState();
+  ConsumerState<NewsPage> createState() => _NewsPageConsumerState();
 }
 
-class _NewsPageState extends ConsumerState<NewsPage> {
+class _NewsPageConsumerState extends ConsumerState<NewsPage> {
   final globalKey = GlobalKey<ScaffoldState>();
   int offset = 0;
   final isLoading = StateProvider<bool>((ref) => false);
