@@ -94,7 +94,7 @@ class DrawerMenu extends StatelessWidget {
                         childCount: menuButtons.length,
                         (context, index) => _MenuButton(
                             () => switch (index) {
-                                  0 => {goToPage('main')},
+                                  0 => {goToPage('reconstruction')},
                                   1 => {goToPage('payment_schedule')},
                                   2 => {goToPage('news')},
                                   3 => {goToPage('support')},

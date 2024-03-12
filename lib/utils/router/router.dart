@@ -7,6 +7,7 @@ import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/ui/pages/auth_page/auth_page.dart';
 import 'package:onyx_ui/ui/pages/news_page/news_page.dart';
 import 'package:onyx_ui/ui/pages/payment_schedule_page/payment_schedule_page.dart';
+import 'package:onyx_ui/ui/pages/reconstruction_page/reconstruction_page.dart';
 import 'package:onyx_ui/ui/pages/settings_page/settings_page.dart';
 import 'package:onyx_ui/ui/pages/splash_screen/splash_screen.dart';
 import 'package:onyx_ui/ui/pages/support_page/support_page.dart';
@@ -64,19 +65,15 @@ class AppRouter {
                 child: const SplashScreen(), key: state.pageKey);
           },
         ),
-        // GoRoute(
-        //   path: '/main',
-        //   pageBuilder: (context, state) {
-        //     Map<String, dynamic>? map = state.extra as Map<String, dynamic>?;
-        //     if (map?["is_cupertino_animation"] == true) {
-        //       return CupertinoPage(
-        //           child: MainPage(routeState: state), key: state.pageKey);
-        //     } else {
-        //       return FadeTransitionPage(
-        //           child: MainPage(routeState: state), key: state.pageKey);
-        //     }
-        //   },
-        // ),
+        GoRoute(
+          path: '/reconstruction',
+          pageBuilder: (context, state) {
+            return FadeTransitionPage(
+                child: ReconstructionPage(routeState: state),
+                key: state.pageKey);
+            // }
+          },
+        ),
         GoRoute(
           path: '/news',
           pageBuilder: (context, state) {

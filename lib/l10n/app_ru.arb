@@ -44,5 +44,30 @@
   "payments":"платежей",
   "today":"Сегодня",
   "yesterday":"Вчера",
-  "tomorrow":"Завтра"
+  "tomorrow":"Завтра",
+  "reconstruction":"Реконструкция",
+  "currentDebt":"Ваша текущая задолженность",
+  "mainDebt":"Основной долг",
+  "finesPenalties":"Штрафы и пени",
+  "issueDate":"Дата выдачи",
+  "youChargedFinesPenalties":"Вам будут списаны штрафы и пени в размере {price} тенге!",
+  "@youChargedFinesPenalties": {
+  "placeholders": {
+    "price": {
+      "example": "123 45",
+      "description": "price"
+    }
+  }
+},
+  "wantToReduceTheBalance":"Желаете сократить остаток Вашего основного долга в {price} тенге?",
+    "@wantToReduceTheBalance": {
+  "placeholders": {
+    "price": {
+      "example": "123 45",
+      "description": "price"
+    }
+  }
+},
+  "yes":"Да",
+  "no":"Нет"
 }

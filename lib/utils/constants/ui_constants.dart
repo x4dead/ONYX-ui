@@ -11,6 +11,7 @@ const spacer = Spacer();
 const kSBH50 = SizedBox(height: 50);
 const kSBH45 = SizedBox(height: 45);
 const kSBH10 = SizedBox(height: 10);
+const kSBH11 = SizedBox(height: 11);
 const kSBH12 = SizedBox(height: 12);
 const kSBH13 = SizedBox(height: 13);
 const kSBH32 = SizedBox(height: 32);
@@ -37,6 +38,7 @@ const kNothing = SizedBox.shrink();
 
 ///Padding
 const kPH20V12 = EdgeInsets.symmetric(horizontal: 20, vertical: 12);
+const kPH10V6 = EdgeInsets.symmetric(horizontal: 10, vertical: 6);
 const kPH12 = EdgeInsets.symmetric(horizontal: 12);
 const kPH24V18 = EdgeInsets.symmetric(horizontal: 24, vertical: 18);
 const kPH14T16B18 = EdgeInsets.fromLTRB(14, 16, 14, 18);

@@ -23,11 +23,32 @@ abstract class AppColors {
     end: Alignment.bottomRight,
   );
   static const LinearGradient gradienCurrentDebt = LinearGradient(
-    begin: Alignment.bottomLeft,
-    end: Alignment.topRight,
+    begin: Alignment(-3, 5),
+    end: Alignment(2.5, -6.5),
+    // stops: [0.2, 0.3, 0.7],
     colors: [
-      Color(0xff00FFC2),
-      Color(0xff00D1FF),
+      Color.fromARGB(255, 0, 255, 195),
+      // colorWhite,
+      // colorWhite,
+      colorWhite,
+      // colorWhite,
+      Color.fromARGB(255, 0, 208, 255),
+    ],
+  );
+
+  static const RadialGradient gradienRadialCurrentDebt = RadialGradient(
+    center: Alignment(-2, 2.5),
+    focal: Alignment(1.5, -5),
+    stops: [
+      0.8,
+      //  0.5,
+      0.8
+    ],
+    radius: 5,
+    colors: [
+      Color.fromARGB(255, 0, 255, 195),
+      // colorWhite,
+      Color.fromARGB(255, 0, 208, 255),
     ],
   );
   static const LinearGradient gradienQuestionAnswer = LinearGradient(

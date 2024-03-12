@@ -44,5 +44,30 @@
   "payments":"төлемдер",
   "today":"Бүгін",
   "yesterday":"Кеше",
-  "tomorrow":"Ертең"
+  "tomorrow":"Ертең",
+  "reconstruction":"Қайта құру",
+  "currentDebt":"Сіздің ағымдағы қарызыңыз",
+  "mainDebt":"Негізгі қарыз",
+  "finesPenalties":"Айыппұлдар мен айыппұлдар",
+  "issueDate":"Берілген күні",
+  "youChargedFinesPenalties":"Сізден {price} теңге көлемінде айыппұлдар мен өсімпұлдар өндіріледі!",
+  "@youChargedFinesPenalties": {
+  "placeholders": {
+    "price": {
+      "example": "123 45",
+      "description": "price"
+    }
+  }
+},
+  "wantToReduceTheBalance":"${price} теңге негізгі қарызыңыздың қалдығын азайтқыңыз келе ме?",
+   "@wantToReduceTheBalance": {
+  "placeholders": {
+    "price": {
+      "example": "123 45",
+      "description": "price"
+    }
+  }
+},
+  "yes":"Иә",
+  "no":"Жоқ"
 }
