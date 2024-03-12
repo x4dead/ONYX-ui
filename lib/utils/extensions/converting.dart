@@ -44,6 +44,11 @@ class Converting {
     return date;
   }
 
+  static String getPaymentDateDMY(DateTime paymentDate) {
+    final DateFormat formatter = DateFormat("dd.MM.yyyy", UserPref.getLocale);
+    return formatter.format(paymentDate);
+  }
+
   static String getPaymentDate(DateTime paymentDate, BuildContext ctx) {
     final now = DateTime.now();
 

@@ -1,4 +1,5 @@
-﻿import 'package:flutter/material.dart';
+﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -16,11 +17,13 @@ import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/extensions/converting.dart';
 import 'package:onyx_ui/utils/extensions/figma_height.dart';
 import 'package:onyx_ui/utils/extensions/media_query.dart';
+import 'package:onyx_ui/utils/extensions/no_thumb_scroll_behavior.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
 
 part 'widgets/calendar_paid_payments.dart';
-part 'widgets/payment_info_widget.dart';
+part 'widgets/monthly_payment_widget.dart';
 part 'widgets/requisites_repayment_buttons.dart';
+part 'widgets/payments_info_list.dart';
 
 class PaymentSchedulePage extends StatelessWidget {
   const PaymentSchedulePage({super.key, this.routeState});
@@ -52,15 +55,54 @@ class PaymentSchedulePage extends StatelessWidget {
                     : 20,
             bottom: 10,
             top: 10),
-        child: const CustomScrollView(
+        child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: PaymentInfoWidget()),
+            const SliverToBoxAdapter(child: MonthlyPaymentWidget()),
             _kSBH15,
-            SliverToBoxAdapter(child: RequisitesRepaymentButtons()),
+            const SliverToBoxAdapter(child: RequisitesRepaymentButtons()),
             _kSBH15,
-            SliverToBoxAdapter(child: CalendarPaidPaymentsButtons()),
+            const SliverToBoxAdapter(child: CalendarPaidPaymentsButtons()),
             _kSBH15,
-            SliverToBoxAdapter(child: CalendarPaidPaymentsButtons()),
+            SliverToBoxAdapter(
+              child: Container(
+                decoration: const BoxDecoration(
+                    color: AppColors.colorGray80,
+                    borderRadius: allCircularRadius12),
+                padding: kPH14T16B18.copyWith(bottom: 16),
+                child: Row(
+                  children: List.generate(4, (index) {
+                    final localization = context.localization;
+                    final chapters = [
+                      localization.paymentDate,
+                      localization.paymentAmount,
+                      localization.balanceOwed
+                    ];
+                    if (index != 3) {
+                      return Flexible(
+                        child: Row(
+                          children: [
+                            Flexible(
+                              child: Text(chapters[index],
+                                  style: AppTextStyle.w500s16.copyWith(
+                                      height: 20.0.toFigmaHeight(16),
+                                      color: AppColors.colorGray0)),
+                            ),
+                          ],
+                        ),
+                      );
+                    }
+                    return SvgPicture.asset(
+                      AppImages.doneNotDone,
+                      colorFilter: const ColorFilter.mode(
+                          AppColors.colorBlack, BlendMode.srcIn),
+                    );
+                  }),
+                ),
+              ),
+            ),
+            _kSBH15,
+            const SliverToBoxAdapter(child: PaymentsInfoList()),
+            const SliverToBoxAdapter(child: kSBH60dot36),
           ],
         ),
       ),

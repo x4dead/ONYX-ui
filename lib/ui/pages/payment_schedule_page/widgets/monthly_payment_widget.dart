@@ -2,8 +2,8 @@
 
 final paymentDate = DateTime.now().add(day1 * 1);
 
-class PaymentInfoWidget extends StatelessWidget {
-  const PaymentInfoWidget({super.key});
+class MonthlyPaymentWidget extends StatelessWidget {
+  const MonthlyPaymentWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
