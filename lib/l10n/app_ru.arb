@@ -50,8 +50,9 @@
   "mainDebt":"Основной долг",
   "finesPenalties":"Штрафы и пени",
   "issueDate":"Дата выдачи",
-  "youChargedFinesPenalties":"Вам будут списаны штрафы и пени в размере {price} тенге!",
-  "@youChargedFinesPenalties": {
+  "youChargedFinesPenalties":"Вам будут списаны штрафы и пени в размере",
+  "priceTenge":"{price} тенге",
+  "@priceTenge": {
   "placeholders": {
     "price": {
       "example": "123 45",
@@ -59,15 +60,7 @@
     }
   }
 },
-  "wantToReduceTheBalance":"Желаете сократить остаток Вашего основного долга в {price} тенге?",
-    "@wantToReduceTheBalance": {
-  "placeholders": {
-    "price": {
-      "example": "123 45",
-      "description": "price"
-    }
-  }
-},
+  "wantToReduceTheBalance":"Желаете сократить остаток Вашего основного долга в",
   "yes":"Да",
   "no":"Нет"
 }

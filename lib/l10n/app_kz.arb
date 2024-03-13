@@ -50,8 +50,9 @@
   "mainDebt":"Негізгі қарыз",
   "finesPenalties":"Айыппұлдар мен айыппұлдар",
   "issueDate":"Берілген күні",
-  "youChargedFinesPenalties":"Сізден {price} теңге көлемінде айыппұлдар мен өсімпұлдар өндіріледі!",
-  "@youChargedFinesPenalties": {
+  "youChargedFinesPenalties":"көлемінде айыппұлдар мен өсімпұлдар өндіріледі!",
+  "priceTenge":"{price} теңге",
+  "@priceTenge": {
   "placeholders": {
     "price": {
       "example": "123 45",
@@ -59,15 +60,7 @@
     }
   }
 },
-  "wantToReduceTheBalance":"${price} теңге негізгі қарызыңыздың қалдығын азайтқыңыз келе ме?",
-   "@wantToReduceTheBalance": {
-  "placeholders": {
-    "price": {
-      "example": "123 45",
-      "description": "price"
-    }
-  }
-},
+  "wantToReduceTheBalance":"негізгі қарызыңыздың қалдығын азайтқыңыз келе ме?",
   "yes":"Иә",
   "no":"Жоқ"
 }
