@@ -1,18 +1,21 @@
-﻿import 'dart:convert';
-
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:onyx_ui/modules/signal_service/river/river.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/themes/text_style/text_style.dart';
 import 'package:onyx_ui/ui/widgets/custom_app_bar.dart';
+import 'package:onyx_ui/ui/widgets/custom_button.dart';
 import 'package:onyx_ui/ui/widgets/dots_indicator.dart';
 import 'package:onyx_ui/ui/widgets/drawer_menu.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/extensions/converting.dart';
 import 'package:onyx_ui/utils/extensions/figma_height.dart';
+import 'package:onyx_ui/utils/extensions/media_query.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
 import 'package:onyx_ui/utils/user_pref.dart';
 
@@ -81,12 +84,13 @@ class _ReconstructionPageState extends State<ReconstructionPage>
               ),
               Flexible(
                 child: DefaultTabController(
-                  length: 2,
+                  length: 3,
                   child: TabBarView(
                     physics: const NeverScrollableScrollPhysics(),
                     dragStartBehavior: DragStartBehavior.down,
                     controller: reconstructionController,
                     children: const [
+                      ConditionsViewWidget(), ConditionsViewWidget(),
                       ConditionsViewWidget(),
                       // ConfirmNumberViewWidget(),
                     ],

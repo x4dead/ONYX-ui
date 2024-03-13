@@ -43,7 +43,8 @@ class CustomButton extends StatelessWidget {
           backgroundColor: bgColor!,
           elevation: 0,
           fixedSize: Size(width!, height!),
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 18.5),
+          padding: kPZero,
+          // const EdgeInsets.symmetric(horizontal: 25, vertical: 18.5),
           side: isOutlinedButton == true
               ? BorderSide(
                   color: borderColor ?? AppColors.colorPrimaryBlue,

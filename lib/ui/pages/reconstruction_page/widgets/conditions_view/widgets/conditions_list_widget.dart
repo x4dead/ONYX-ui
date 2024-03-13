@@ -20,34 +20,32 @@ class ConditionsListWidget extends StatelessWidget {
             decoration:
                 roundedBoxDecoration.copyWith(color: AppColors.colorGray80),
             padding: kPV12R12.copyWith(left: 10, right: 10),
-            child: Flexible(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    condition[itemIndex].$1,
-                    style: AppTextStyle.w500s15
-                        .copyWith(color: AppColors.colorGray0),
-                  ),
-                  kSBH5,
-                  Row(
-                    children: [
-                      SvgPicture.asset(condition[itemIndex].$2,
-                          colorFilter: svgColorFilter()),
-                      const SizedBox(width: 8),
-                      Flexible(
-                        child: Text(
-                          itemIndex == 2
-                              ? Converting.getPaymentDateDMY(
-                                  condition[itemIndex].$3 as DateTime)
-                              : condition[itemIndex].$3 as String,
-                          style: AppTextStyle.w600s24,
-                        ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  condition[itemIndex].$1,
+                  style: AppTextStyle.w500s15
+                      .copyWith(color: AppColors.colorGray0),
+                ),
+                kSBH5,
+                Row(
+                  children: [
+                    SvgPicture.asset(condition[itemIndex].$2,
+                        colorFilter: svgColorFilter()),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: Text(
+                        itemIndex == 2
+                            ? Converting.getPaymentDateDMY(
+                                condition[itemIndex].$3 as DateTime)
+                            : condition[itemIndex].$3 as String,
+                        style: AppTextStyle.w600s24,
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           );
         }

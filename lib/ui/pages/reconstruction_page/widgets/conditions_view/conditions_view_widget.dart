@@ -1,10 +1,10 @@
 ﻿part of '../../reconstruction_page.dart';
 
-class ConditionsViewWidget extends StatelessWidget {
+class ConditionsViewWidget extends ConsumerWidget {
   const ConditionsViewWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final localization = context.localization;
     final isRu = UserPref.getLocale == 'ru';
     return SingleChildScrollView(
@@ -85,6 +85,67 @@ class ConditionsViewWidget extends StatelessWidget {
               ],
             ),
           ),
+          kSBH16,
+          Padding(
+            padding: kPH12,
+            child: Row(
+              children: [
+                Flexible(
+                  child: CustomButton(
+                    onTap: () {
+                      reconstructionController.animateTo(1);
+                    },
+                    height: 52,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(CupertinoIcons.checkmark_alt_circle_fill,
+                            color: AppColors.colorWhite),
+                        kSBW10,
+                        Text(
+                          localization.yes,
+                          style: AppTextStyle.w500s16.copyWith(
+                              height: 11.0.toFigmaHeight(16),
+                              color: AppColors.colorWhite),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                kSBW10,
+                CustomButton(
+                  height: 52,
+                  width: 96,
+                  isOutlinedButton: true,
+                  bgColor: AppColors.colorWhite,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        AppImages.closeFill,
+                        colorFilter:
+                            svgColorFilter(color: AppColors.colorPrimaryBlue),
+                      ),
+                      kSBW10,
+                      Text(
+                        localization.no,
+                        style: AppTextStyle.w500s16.copyWith(
+                            height: 11.0.toFigmaHeight(16),
+                            color: AppColors.colorPrimaryBlue),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ref.watch(River.settingsPod).locale == 'ru'
+              ? context.height <= 674
+                  ? const SizedBox(height: 79)
+                  : const SizedBox(height: 79)
+              : context.height <= 660
+                  ? const SizedBox(height: 79)
+                  : const SizedBox(height: 79)
         ],
       ),
     );
