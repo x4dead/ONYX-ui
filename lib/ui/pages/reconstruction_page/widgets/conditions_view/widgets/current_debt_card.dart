@@ -6,12 +6,13 @@ class CurrentDebtCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      clipBehavior: Clip.hardEdge,
       // width: double.infinity,
       width: 335,
       height: 137,
       // constraints: const BoxConstraints(maxWidth: 335),
       decoration:
-          roundedVoxDecoration.copyWith(gradient: AppColors.gradienCurrentDebt),
+          roundedBoxDecoration.copyWith(gradient: AppColors.gradienCurrentDebt),
       padding: kPAll20,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

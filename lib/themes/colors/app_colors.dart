@@ -23,11 +23,11 @@ abstract class AppColors {
     end: Alignment.bottomRight,
   );
   static const LinearGradient gradienCurrentDebt = LinearGradient(
-    begin: Alignment(-15.5, 55),
-    end: Alignment(15.5, -55),
+    begin: Alignment(-5, 7.5),
+    end: Alignment(5, -7.5),
     colors: [
       Color(0xFF00FFC2),
-      Color.fromARGB(155, 0, 255, 195),
+      // Color.fromARGB(155, 0, 255, 195),
       // Color.fromARGB(125, 0, 255, 195),
       // Color.fromARGB(100, 0, 255, 195),
       // Color.fromARGB(75, 0, 255, 195),
@@ -43,7 +43,7 @@ abstract class AppColors {
       // Color.fromARGB(100, 0, 208, 255),
       // Color.fromARGB(125, 0, 208, 255),
       // colorWhite,
-      Color.fromARGB(155, 0, 208, 255),
+      // Color.fromARGB(155, 0, 208, 255),
       Color(0xFF00D1FF),
     ],
   );

@@ -10,6 +10,7 @@ class ConditionsViewWidget extends StatelessWidget {
         kSBH10,
         CurrentDebtCard(),
         kSBH11,
+        ConditionsListWidget(),
       ],
     );
   }

@@ -80,11 +80,11 @@ class PaymentCard extends StatelessWidget {
                   true;
               return SvgPicture.asset(
                 AppImages.time,
-                colorFilter: ColorFilter.mode(
-                    isCurrentPayment || currentPaymentIndex == 0
-                        ? AppColors.colorPrimaryBlue
-                        : AppColors.colorGray40,
-                    BlendMode.srcIn),
+                colorFilter: svgColorFilter(
+                  color: isCurrentPayment || currentPaymentIndex == 0
+                      ? AppColors.colorPrimaryBlue
+                      : AppColors.colorGray40,
+                ),
               );
             } else {
               return const Icon(

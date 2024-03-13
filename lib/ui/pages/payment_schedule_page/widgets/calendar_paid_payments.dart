@@ -20,8 +20,8 @@ class CalendarPaidPaymentsButtons extends StatelessWidget {
         return Flexible(
           child: Container(
             width: double.infinity,
-            decoration: roundedVoxDecoration.copyWith(
-                        color: AppColors.colorGray80), 
+            decoration:
+                roundedBoxDecoration.copyWith(color: AppColors.colorGray80),
             clipBehavior: Clip.hardEdge,
             child: SplashButton(
               onTap: () {},
@@ -32,8 +32,7 @@ class CalendarPaidPaymentsButtons extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       buttons[itemIndex].$1,
-                      colorFilter: const ColorFilter.mode(
-                          AppColors.colorGray0, BlendMode.srcIn),
+                      colorFilter: svgColorFilter(),
                     ),
                     kSBH5,
                     Text(

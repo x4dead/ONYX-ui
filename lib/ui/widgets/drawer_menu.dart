@@ -61,7 +61,6 @@ class DrawerMenu extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: AppTextStyle.w600s24.copyWith(
                         color: AppColors.colorWhite,
-                        height: 17.0.toFigmaHeight(24),
                         letterSpacing: -0.3,
                       ),
                     ),

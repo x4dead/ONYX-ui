@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onyx_ui/themes/colors/app_colors.dart';
 
 ///SizedBox const
 
@@ -69,7 +70,9 @@ const kS36 = Size(36, 36);
 //         width: 1,
 //         strokeAlign: BorderSide.strokeAlignInside));
 const allCircularRadius12 = BorderRadius.all(Radius.circular(12));
-const roundedVoxDecoration = BoxDecoration(borderRadius: allCircularRadius12);
+const roundedBoxDecoration = BoxDecoration(borderRadius: allCircularRadius12);
+ColorFilter svgColorFilter({Color? color}) =>
+    ColorFilter.mode(color ?? AppColors.colorGray0, BlendMode.srcIn);
 
 const List<String> shortWeekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 const languages = ['Русский язык', 'Қазақша'];

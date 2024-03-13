@@ -66,7 +66,7 @@ class PaymentSchedulePage extends StatelessWidget {
             SliverToBoxAdapter(
               child: Container(
                 decoration:
-                    roundedVoxDecoration.copyWith(color: AppColors.colorGray80),
+                    roundedBoxDecoration.copyWith(color: AppColors.colorGray80),
                 padding: kPH14T16B18.copyWith(bottom: 16),
                 child: Row(
                   children: List.generate(4, (index) {
@@ -92,8 +92,7 @@ class PaymentSchedulePage extends StatelessWidget {
                     }
                     return SvgPicture.asset(
                       AppImages.doneNotDone,
-                      colorFilter: const ColorFilter.mode(
-                          AppColors.colorBlack, BlendMode.srcIn),
+                      colorFilter: svgColorFilter(color: AppColors.colorBlack),
                     );
                   }),
                 ),

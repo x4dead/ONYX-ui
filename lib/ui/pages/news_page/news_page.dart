@@ -68,9 +68,7 @@ class _NewsPageConsumerState extends ConsumerState<NewsPage> {
       drawer: DrawerMenu(routeState: widget.routeState),
       backgroundColor: AppColors.colorWhite,
       appBar: CustomAppBar(title: localization.news, leading: (
-        SvgPicture.asset(AppImages.menu,
-            colorFilter:
-                const ColorFilter.mode(AppColors.colorGray0, BlendMode.srcIn)),
+        SvgPicture.asset(AppImages.menu, colorFilter: svgColorFilter()),
         () => globalKey.currentState?.openDrawer(),
       )),
       body: SafeArea(
@@ -84,7 +82,7 @@ class _NewsPageConsumerState extends ConsumerState<NewsPage> {
                   alignment: Alignment.topCenter,
                   child: Container(
                     clipBehavior: Clip.hardEdge,
-                    decoration: roundedVoxDecoration.copyWith(
+                    decoration: roundedBoxDecoration.copyWith(
                         color: AppColors.colorSearchCard),
                     child: SplashButton(
                       onTap: () {},
@@ -95,8 +93,7 @@ class _NewsPageConsumerState extends ConsumerState<NewsPage> {
                           children: [
                             SvgPicture.asset(
                               AppImages.search,
-                              colorFilter: const ColorFilter.mode(
-                                  AppColors.colorGray0, BlendMode.srcIn),
+                              colorFilter: svgColorFilter(),
                             ),
                             kSBW6,
                             Text(

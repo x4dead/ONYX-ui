@@ -39,10 +39,11 @@ abstract class AppTextStyle {
     fontSize: 15,
     fontWeight: FontWeight.w600,
   );
-  static const TextStyle w600s24 = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.w600,
-  );
+  static TextStyle w600s24 = TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+      height: 17.0.toFigmaHeight(24),
+      color: AppColors.colorGray0);
 
   static TextStyle w500s14 = TextStyle(
       fontSize: 14,

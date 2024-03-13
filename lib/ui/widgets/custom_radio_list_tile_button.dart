@@ -26,7 +26,7 @@ class CustomRadioListTileButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       clipBehavior: Clip.hardEdge,
-      decoration: roundedVoxDecoration.copyWith(color: AppColors.colorGray80),
+      decoration: roundedBoxDecoration.copyWith(color: AppColors.colorGray80),
       child: SplashButton(
         onTap: onTap ?? () {},
         child: Padding(

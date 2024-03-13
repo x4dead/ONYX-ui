@@ -35,8 +35,8 @@ class ChipButton extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 icon?.$1 ?? AppImages.comment,
-                colorFilter: ColorFilter.mode(
-                    icon?.$2 ?? AppColors.colorGray20, BlendMode.srcIn),
+                colorFilter:
+                    svgColorFilter(color: icon?.$2 ?? AppColors.colorGray20),
               ),
               if (text != null) ...[
                 kSBW6,

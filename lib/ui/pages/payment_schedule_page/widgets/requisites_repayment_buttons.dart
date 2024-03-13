@@ -25,7 +25,7 @@ class RequisitesRepaymentButtons extends ConsumerWidget {
                   maxWidth: 160,
                 ),
                 decoration:
-                    roundedVoxDecoration.copyWith(color: AppColors.colorGray80),
+                    roundedBoxDecoration.copyWith(color: AppColors.colorGray80),
                 clipBehavior: Clip.hardEdge,
                 child: SplashButton(
                   onTap: () {},
@@ -34,11 +34,8 @@ class RequisitesRepaymentButtons extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SvgPicture.asset(
-                          buttons[itemIndex],
-                          colorFilter: const ColorFilter.mode(
-                              AppColors.colorGray0, BlendMode.srcIn),
-                        ),
+                        SvgPicture.asset(buttons[itemIndex],
+                            colorFilter: svgColorFilter()),
                         Text(
                           itemIndex == 1
                               ? ref.watch(River.settingsPod).locale == 'ru'
