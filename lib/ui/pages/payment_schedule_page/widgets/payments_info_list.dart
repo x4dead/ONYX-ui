@@ -13,7 +13,7 @@ class _PaymentsInfoListState extends State<PaymentsInfoList> {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.colorGray80,
-        border: Border.all(width: 1, color: AppColors.colorGray40),
+        border: Border.all(width: 1, color: AppColors.colorGray60),
         borderRadius: allCircularRadius12,
       ),
       child: SingleChildScrollView(

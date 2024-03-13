@@ -41,6 +41,7 @@ class CurrentDebtCard extends StatelessWidget {
                       TextSpan(
                           text: " ₸",
                           style: AppTextStyle.w600s32.copyWith(
+                            fontFamily: 'SF Pro Display',
                             color: AppColors.colorGray0,
                             fontWeight: FontWeight.w500,
                           ))
