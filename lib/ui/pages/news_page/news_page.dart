@@ -84,10 +84,8 @@ class _NewsPageConsumerState extends ConsumerState<NewsPage> {
                   alignment: Alignment.topCenter,
                   child: Container(
                     clipBehavior: Clip.hardEdge,
-                    decoration: const BoxDecoration(
-                      borderRadius: allCircularRadius12,
-                      color: AppColors.colorSearchCard,
-                    ),
+                    decoration: roundedVoxDecoration.copyWith(
+                        color: AppColors.colorSearchCard),
                     child: SplashButton(
                       onTap: () {},
                       child: Padding(

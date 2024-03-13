@@ -24,9 +24,8 @@ class RequisitesRepaymentButtons extends ConsumerWidget {
                 constraints: const BoxConstraints(
                   maxWidth: 160,
                 ),
-                decoration: const BoxDecoration(
-                    color: AppColors.colorGray80,
-                    borderRadius: allCircularRadius12),
+                decoration:
+                    roundedVoxDecoration.copyWith(color: AppColors.colorGray80),
                 clipBehavior: Clip.hardEdge,
                 child: SplashButton(
                   onTap: () {},

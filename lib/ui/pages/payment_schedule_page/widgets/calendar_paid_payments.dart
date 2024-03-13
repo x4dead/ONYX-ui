@@ -20,9 +20,8 @@ class CalendarPaidPaymentsButtons extends StatelessWidget {
         return Flexible(
           child: Container(
             width: double.infinity,
-            decoration: const BoxDecoration(
-                color: AppColors.colorGray80,
-                borderRadius: allCircularRadius12),
+            decoration: roundedVoxDecoration.copyWith(
+                        color: AppColors.colorGray80), 
             clipBehavior: Clip.hardEdge,
             child: SplashButton(
               onTap: () {},

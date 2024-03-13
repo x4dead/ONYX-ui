@@ -65,9 +65,8 @@ class PaymentSchedulePage extends StatelessWidget {
             _kSBH15,
             SliverToBoxAdapter(
               child: Container(
-                decoration: const BoxDecoration(
-                    color: AppColors.colorGray80,
-                    borderRadius: allCircularRadius12),
+                decoration:
+                    roundedVoxDecoration.copyWith(color: AppColors.colorGray80),
                 padding: kPH14T16B18.copyWith(bottom: 16),
                 child: Row(
                   children: List.generate(4, (index) {

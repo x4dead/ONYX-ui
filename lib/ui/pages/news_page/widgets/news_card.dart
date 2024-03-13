@@ -26,8 +26,7 @@ class _NewsCardState extends State<NewsCard> {
         children: [
           if (widget.model.img != null)
             Container(
-              decoration:
-                  const BoxDecoration(borderRadius: allCircularRadius12),
+              decoration: roundedVoxDecoration,
               clipBehavior: Clip.hardEdge,
               constraints: const BoxConstraints(maxHeight: 550),
               child: CachedNetworkImage(

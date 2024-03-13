@@ -28,8 +28,7 @@ class MonthlyPaymentWidget extends StatelessWidget {
                 ? 12
                 : 14,
       ),
-      decoration: const BoxDecoration(
-          color: AppColors.colorGray80, borderRadius: allCircularRadius12),
+      decoration: roundedVoxDecoration.copyWith(color: AppColors.colorGray80),
       child: Column(children: [
         CustomButton(
           buttonText: localization.pay,

@@ -25,10 +25,7 @@ class SettingsSwitcher extends ConsumerWidget {
 
     return Container(
       clipBehavior: Clip.hardEdge,
-      decoration: const BoxDecoration(
-        color: AppColors.colorGray80,
-        borderRadius: allCircularRadius12,
-      ),
+      decoration: roundedVoxDecoration.copyWith(color: AppColors.colorGray80),
       child: SplashButton(
         onTap: onChanged,
         child: Padding(
