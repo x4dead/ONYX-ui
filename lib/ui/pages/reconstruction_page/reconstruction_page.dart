@@ -22,10 +22,11 @@ import 'package:onyx_ui/utils/extensions/media_query.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
 import 'package:onyx_ui/utils/user_pref.dart';
 
-part 'widgets/conditions_view/conditions_view_widget.dart';
-part 'widgets/conditions_view/widgets/conditions_list_widget.dart';
-part 'widgets/conditions_view/widgets/current_debt_card.dart';
-part 'widgets/restructuring_proposal_widget/restructuring_proposal_page.dart';
+part 'widgets/conditions_view_widget/conditions_view_widget.dart';
+part 'widgets/conditions_view_widget/widgets/conditions_list_widget.dart';
+part 'widgets/conditions_view_widget/widgets/current_debt_card.dart';
+part 'widgets/restructuring_proposal_widget/restructuring_proposal_widget.dart';
+part 'widgets/application_accepted_widget/application_accepted_widget.dart';
 
 late TabController reconstructionController;
 
@@ -94,9 +95,9 @@ class _ReconstructionPageState extends State<ReconstructionPage>
                     dragStartBehavior: DragStartBehavior.down,
                     controller: reconstructionController,
                     children: const [
-                      ConditionsViewWidget(), RestructuringProposalWidget(),
                       ConditionsViewWidget(),
-                      // ConfirmNumberViewWidget(),
+                      RestructuringProposalWidget(),
+                      ApplicationAcceptedWidget(),
                     ],
                   ),
                 ),

@@ -62,5 +62,25 @@
 },
   "wantToReduceTheBalance":"негізгі қарызыңыздың қалдығын азайтқыңыз келе ме?",
   "yes":"Иә",
-  "no":"Жоқ"
+  "no":"Жоқ",
+  "restructuringProposal":"Сіздің қарызыңызды қайта құрылымдау туралы ұсыныс",
+  "restructuringProposalPrice":"{price} теңгемен:",
+  "@restructuringProposalPrice": {
+  "placeholders": {
+    "price": {
+      "example": "123 45",
+      "description": "price"
+    }
+  }
+},
+"desiredDiscount":"Қалаған жеңілдік",
+"balanceDebt":"Қарыз қалдығы",
+"maturity":"Жетілу",
+"monthlyPayment":"Ай сайынғы төлем",
+"months":"Айлар",
+"agree": "Келісемін",
+"applicationAccepted":"Сіздің өтінішіңіз қабылданды!\nҚоңырау 24 сағат ішінде\nкеледі",
+"date":"Күн",
+"time":"Уақыт",
+"ready":"Дайын"
 }

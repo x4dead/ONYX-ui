@@ -62,5 +62,25 @@
 },
   "wantToReduceTheBalance":"Желаете сократить остаток Вашего основного долга в",
   "yes":"Да",
-  "no":"Нет"
+  "no":"Нет",
+  "restructuringProposal":"Предложение по реструктуризации Вашей задолженности в",
+   "restructuringProposalPrice":"{price} тенге:",
+  "@restructuringProposalPrice": {
+  "placeholders": {
+    "price": {
+      "example": "123 45",
+      "description": "price"
+    }
+  }
+},
+"desiredDiscount":"Желаемый дисконт",
+"balanceDebt":"Остаток задолженности",
+"maturity":"Срок погашения",
+"monthlyPayment":"Ежемесячный платёж ",
+"months":"Месяцев",
+"agree":"Согласиться",
+"applicationAccepted":"Ваша заявка принята!\nЗвонок поступит в течении\n24 часов",
+"date":"Дата",
+"time":"Время",
+"ready":"Готово"
 }

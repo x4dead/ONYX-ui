@@ -44,8 +44,15 @@ class Converting {
     return date;
   }
 
-  static String getPaymentDateDMY(DateTime paymentDate) {
-    final DateFormat formatter = DateFormat("dd.MM.yyyy", UserPref.getLocale);
+  static String getPaymentDateDMY(DateTime paymentDate,
+      {bool? shortYear = false}) {
+    final DateFormat formatter = DateFormat(
+        shortYear == true ? "dd.MM.yy" : "dd.MM.yyyy", UserPref.getLocale);
+    return formatter.format(paymentDate);
+  }
+
+  static String getTime(DateTime paymentDate) {
+    final DateFormat formatter = DateFormat("HH:MM", UserPref.getLocale);
     return formatter.format(paymentDate);
   }
 

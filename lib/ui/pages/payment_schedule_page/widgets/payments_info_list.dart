@@ -79,7 +79,7 @@ class PaymentCard extends StatelessWidget {
                       .isPayed ==
                   true;
               return SvgPicture.asset(
-                AppImages.time,
+                AppImages.timeFill,
                 colorFilter: svgColorFilter(
                   color: isCurrentPayment || currentPaymentIndex == 0
                       ? AppColors.colorPrimaryBlue
