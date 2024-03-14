@@ -45,6 +45,7 @@ const kPH24V18 = EdgeInsets.symmetric(horizontal: 24, vertical: 18);
 const kPH14T16B18 = EdgeInsets.fromLTRB(14, 16, 14, 18);
 const kPH21 = EdgeInsets.symmetric(horizontal: 21);
 const kPH16 = EdgeInsets.symmetric(horizontal: 16);
+const kPL15R14 = EdgeInsets.only(left: 15, right: 14);
 const kPH6 = EdgeInsets.symmetric(horizontal: 6);
 const kPZero = EdgeInsets.zero;
 const kPAll6 = EdgeInsets.all(6);

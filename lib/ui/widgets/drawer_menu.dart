@@ -146,7 +146,11 @@ class _MenuButton extends StatelessWidget {
         height: 60,
         child: Row(
           children: [
-            SvgPicture.asset(buttonInfo.$1),
+            SvgPicture.asset(
+              buttonInfo.$1,
+              height: 24,
+              width: 24,
+            ),
             kSBW10,
             Text(
               buttonInfo.$2,

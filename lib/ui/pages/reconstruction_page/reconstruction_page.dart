@@ -1,4 +1,6 @@
-﻿import 'package:flutter/cupertino.dart';
+﻿import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,6 +11,7 @@ import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/themes/text_style/text_style.dart';
 import 'package:onyx_ui/ui/widgets/custom_app_bar.dart';
 import 'package:onyx_ui/ui/widgets/custom_button.dart';
+import 'package:onyx_ui/ui/widgets/custom_dropdown_menu.dart';
 import 'package:onyx_ui/ui/widgets/dots_indicator.dart';
 import 'package:onyx_ui/ui/widgets/drawer_menu.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
@@ -22,6 +25,7 @@ import 'package:onyx_ui/utils/user_pref.dart';
 part 'widgets/conditions_view/conditions_view_widget.dart';
 part 'widgets/conditions_view/widgets/conditions_list_widget.dart';
 part 'widgets/conditions_view/widgets/current_debt_card.dart';
+part 'widgets/restructuring_proposal_widget/restructuring_proposal_page.dart';
 
 late TabController reconstructionController;
 
@@ -90,7 +94,7 @@ class _ReconstructionPageState extends State<ReconstructionPage>
                     dragStartBehavior: DragStartBehavior.down,
                     controller: reconstructionController,
                     children: const [
-                      ConditionsViewWidget(), ConditionsViewWidget(),
+                      ConditionsViewWidget(), RestructuringProposalWidget(),
                       ConditionsViewWidget(),
                       // ConfirmNumberViewWidget(),
                     ],

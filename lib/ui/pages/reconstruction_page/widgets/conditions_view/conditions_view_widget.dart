@@ -140,12 +140,18 @@ class ConditionsViewWidget extends ConsumerWidget {
             ),
           ),
           ref.watch(River.settingsPod).locale == 'ru'
-              ? context.height <= 674
-                  ? const SizedBox(height: 79)
-                  : const SizedBox(height: 79)
-              : context.height <= 660
-                  ? const SizedBox(height: 79)
-                  : const SizedBox(height: 79)
+              ? SizedBox(
+                  height: context.height <= 735
+                      ? 39
+                      : context.height <= 755
+                          ? 59
+                          : 79)
+              : SizedBox(
+                  height: context.height <= 777
+                      ? 39
+                      : context.height <= 800
+                          ? 59
+                          : 79)
         ],
       ),
     );
