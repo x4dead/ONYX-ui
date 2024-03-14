@@ -1,9 +1,7 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/themes/text_style/text_style.dart';
-import 'package:onyx_ui/ui/widgets/splash_button.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
@@ -13,11 +11,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.title,
     this.leading,
-    this.action,
+    this.actionWidget,
   });
   final String? title;
   final (Widget?, VoidCallback?)? leading;
-  final (Widget, VoidCallback)? action;
+  final Widget? actionWidget;
   @override
   Size get preferredSize => const Size.fromHeight(60);
   @override
@@ -62,10 +60,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 style: AppTextStyle.w600s20,
               ),
             ),
-            if (action?.$1 != null)
-              Align(
-                  alignment: Alignment.centerRight,
-                  child: SplashButton(onTap: action?.$2, child: action!.$1))
+            if (actionWidget != null)
+              Align(alignment: Alignment.centerRight, child: actionWidget)
           ]),
         ),
       ),

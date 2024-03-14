@@ -14,6 +14,7 @@ import 'package:onyx_ui/ui/widgets/custom_button.dart';
 import 'package:onyx_ui/ui/widgets/custom_dropdown_menu.dart';
 import 'package:onyx_ui/ui/widgets/dots_indicator.dart';
 import 'package:onyx_ui/ui/widgets/drawer_menu.dart';
+import 'package:onyx_ui/ui/widgets/splash_button.dart';
 import 'package:onyx_ui/utils/constants/ui_constants.dart';
 import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/extensions/converting.dart';
@@ -63,9 +64,46 @@ class _ReconstructionPageState extends State<ReconstructionPage>
       backgroundColor: AppColors.colorWhite,
       appBar: CustomAppBar(
         title: context.localization.reconstruction,
+        actionWidget: Container(
+          clipBehavior: Clip.hardEdge,
+          decoration: const BoxDecoration(
+              color: AppColors.colorGray80,
+              borderRadius: BorderRadius.all(Radius.circular(6))),
+          child: SplashButton(
+            onTap: () {},
+            child: Padding(
+              padding: kPAll6,
+              child: Row(mainAxisSize: MainAxisSize.min, children: [
+                Text(
+                  context.localization.language,
+                  style: AppTextStyle.w500s14
+                      .copyWith(color: AppColors.colorBlack),
+                ),
+                const SizedBox(width: 8),
+                SvgPicture.asset(
+                  AppImages.flag,
+                  height: 24,
+                  width: 24,
+                  colorFilter: svgColorFilter(),
+                )
+              ]),
+            ),
+          ),
+        ),
         leading: (
-          SvgPicture.asset(AppImages.menu),
-          () => globalKey.currentState?.openDrawer(),
+          ValueListenableBuilder(
+              valueListenable: position,
+              builder: (ctx, v, child) {
+                return SvgPicture.asset(
+                    position.value != 0 ? AppImages.arrowLeft : AppImages.menu);
+              }),
+          () {
+            if (position.value == 0) {
+              globalKey.currentState?.openDrawer();
+            } else {
+              reconstructionController.animateTo(position.value - 1);
+            }
+          }
         ),
       ),
       drawer: DrawerMenu(routeState: widget.routeState),
