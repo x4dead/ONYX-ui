@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final (Widget?, VoidCallback?)? leading;
   final Widget? actionWidget;
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(62);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         height: preferredSize.height,
         width: double.infinity,
         padding: kPH20V12,
-        alignment: Alignment.bottomCenter,
+        alignment: Alignment.center,
         // decoration: const BoxDecoration(
         // border: Border(
         //     bottom: BorderSide(

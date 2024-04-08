@@ -3,8 +3,10 @@ import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/utils/extensions/figma_height.dart';
 
 abstract class AppTextStyle {
-  static const TextStyle w500s18 =
-      TextStyle(fontSize: 18, fontWeight: FontWeight.w500);
+  static TextStyle w500s18 = TextStyle(
+      height: 22.0.toFigmaHeight(18),
+      fontSize: 18,
+      fontWeight: FontWeight.w500);
 
   static TextStyle w600s39point47 = TextStyle(
     fontSize: 39.47,
@@ -49,15 +51,16 @@ abstract class AppTextStyle {
       fontSize: 14,
       fontWeight: FontWeight.w500,
       height: 17.0.toFigmaHeight(14));
-  static const TextStyle w500s15 = TextStyle(
+  static TextStyle w500s15 = TextStyle(
     fontSize: 15,
+    height: 18.0.toFigmaHeight(15),
     fontWeight: FontWeight.w500,
   );
 
-  static const TextStyle w500s16 = TextStyle(
+  static TextStyle w500s16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    // height: 19.0.toFigmaHeight(16)
+    height: 19.0.toFigmaHeight(16),
   );
   static const TextStyle w500s16fSF = TextStyle(
       fontFamily: 'SF Pro Display', fontSize: 16, fontWeight: FontWeight.w500);

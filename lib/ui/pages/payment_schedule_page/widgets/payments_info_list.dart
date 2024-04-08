@@ -55,11 +55,9 @@ class PaymentCard extends StatelessWidget {
                     Flexible(
                       child: Text(
                         index == 2
-                            ? Converting.formatNumber(
-                                monthlyPaymentClass.balanceOwed!)
+                            ? "${Converting.formatNumber(monthlyPaymentClass.balanceOwed!)} ₸"
                             : index == 1
-                                ? Converting.formatNumber(
-                                    monthlyPaymentClass.paymentAmount!)
+                                ? "${Converting.formatNumber(monthlyPaymentClass.paymentAmount!)} ₸"
                                 : Converting.getPaymentDateDMY(
                                     monthlyPaymentClass.paymentDate!),
                         style: style,

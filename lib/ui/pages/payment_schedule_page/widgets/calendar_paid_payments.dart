@@ -14,8 +14,8 @@ class CalendarPaidPaymentsButtons extends StatelessWidget {
       if (index.isEven) {
         final itemIndex = index ~/ 2;
         final buttons = [
-          (AppImages.wallet, localization.earlyRepayment),
-          (AppImages.document, localization.accountDetails)
+          (AppImages.document, localization.accountDetails),
+          (AppImages.wallet, localization.paymentInstructions),
         ];
         return Flexible(
           child: Container(

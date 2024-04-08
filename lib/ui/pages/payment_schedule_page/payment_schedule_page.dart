@@ -59,9 +59,9 @@ class PaymentSchedulePage extends StatelessWidget {
           slivers: [
             const SliverToBoxAdapter(child: MonthlyPaymentWidget()),
             _kSBH15,
-            const SliverToBoxAdapter(child: RequisitesRepaymentButtons()),
-            _kSBH15,
             const SliverToBoxAdapter(child: CalendarPaidPaymentsButtons()),
+            _kSBH15,
+            const SliverToBoxAdapter(child: RequisitesRepaymentButtons()),
             _kSBH15,
             SliverToBoxAdapter(
               child: Container(

@@ -30,10 +30,6 @@ class MonthlyPaymentWidget extends StatelessWidget {
       ),
       decoration: roundedBoxDecoration.copyWith(color: AppColors.colorGray80),
       child: Column(children: [
-        CustomButton(
-          buttonText: localization.pay,
-        ),
-        kSBH10,
         Padding(
           padding: context.width <= 380
               ? kPH12
@@ -42,34 +38,6 @@ class MonthlyPaymentWidget extends StatelessWidget {
                   : kPH16,
           child: Column(
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: List.generate(3, (index) {
-                  final data = ["Завтра", "18,749", "112496"];
-
-                  return Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 6, top: 12),
-                      child: Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              index == 0
-                                  ? Converting.getPaymentDate(
-                                      paymentDate, context)
-                                  : Converting.formatNumber(data[index]),
-                              style: AppTextStyle.w500s18.copyWith(
-                                  color: difference.isNegative && index == 0
-                                      ? AppColors.colorRed
-                                      : AppColors.colorBlack),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                }),
-              ),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: List.generate(
@@ -90,9 +58,41 @@ class MonthlyPaymentWidget extends StatelessWidget {
                           ),
                         )),
               ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(3, (index) {
+                  final data = ["Завтра", "18,749", "112496"];
+
+                  return Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 6, top: 12),
+                      child: Row(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              index == 0
+                                  ? Converting.getPaymentDate(
+                                      paymentDate, context)
+                                  : "${Converting.formatNumber(data[index])} ₸",
+                              style: AppTextStyle.w500s18.copyWith(
+                                  color: difference.isNegative && index == 0
+                                      ? AppColors.colorRed
+                                      : AppColors.colorBlack),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }),
+              ),
             ],
           ),
-        )
+        ),
+        kSBH10,
+        CustomButton(
+          buttonText: localization.pay,
+        ),
       ]),
     );
   }
