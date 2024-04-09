@@ -5,6 +5,11 @@ import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/user_pref.dart';
 
 class Converting {
+  static String formatCardNumber(int number) {
+    String numStr = number.toString();
+    return '** ${numStr.substring(numStr.length - 4)}';
+  }
+
   static String getNewsDate(DateTime postDate, BuildContext context) {
     final now = DateTime.now();
 

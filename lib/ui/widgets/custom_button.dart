@@ -16,6 +16,7 @@ class CustomButton extends StatelessWidget {
     this.isOutlinedButton = false,
     this.highlightColor,
     this.child,
+    this.borderRadius = allCircularRadius12,
   })  : assert(child != null ? buttonText == '' : true,
             "buttonText must be empty if child has widget"),
         assert(buttonText != '' ? child == null : true,
@@ -31,6 +32,7 @@ class CustomButton extends StatelessWidget {
   final double? height;
   final bool? isOutlinedButton;
   final Color? borderColor;
+  final BorderRadiusGeometry? borderRadius;
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
@@ -38,8 +40,7 @@ class CustomButton extends StatelessWidget {
           highlightColor: isOutlinedButton == true
               ? highlightColor ?? AppColors.colorPrimaryBlue.withOpacity(0.2)
               : highlightColor ?? AppColors.colorWhite.withOpacity(0.15),
-          shape:
-              const RoundedRectangleBorder(borderRadius: allCircularRadius12),
+          shape: RoundedRectangleBorder(borderRadius: borderRadius!),
           backgroundColor: bgColor!,
           elevation: 0,
           fixedSize: Size(width!, height!),

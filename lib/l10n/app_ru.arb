@@ -98,7 +98,6 @@
     }
   }
 },
-
  "month":"{count} месяцев",
   "@month": {
   "placeholders": {
@@ -108,5 +107,8 @@
     }
    
   }
-}
+},
+"payment":"Оплата",
+"paymentMethod":"Способ оплаты",
+"autoPayment":"Автоплатёж"
 }

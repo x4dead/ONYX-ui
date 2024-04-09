@@ -120,28 +120,25 @@ class ApplicationAcceptedWidget extends ConsumerWidget {
                 ),
                 if (context.height <= 750)
                   SizedBox(
-                      height: 15 * pow(context.height / 750, 2.5).toDouble())
+                      height: 28 * pow(context.height / 750, 2.5).toDouble())
                 else
-                  kSBH15,
-                SizedBox(
-                    width: 295,
-                    height: 56,
-                    child: Center(
-                      child: SvgPicture.asset(
-                        AppImages.onyx,
-                        width: 82.65,
-                        height: 21,
-                      ),
-                    )),
+                  const SizedBox(height: 28),
+                Center(
+                  child: SvgPicture.asset(
+                    AppImages.onyx,
+                    width: 82.65,
+                    height: 21,
+                  ),
+                ),
               ],
             ),
           ),
           if (context.height <= 750)
             SizedBox(
-              height: 79 * pow(context.height / 750, 6).toDouble(),
+              height: 69 * pow(context.height / 750, 6).toDouble(),
             )
           else
-            const SizedBox(height: 79)
+            const SizedBox(height: 69)
         ],
       ),
     );

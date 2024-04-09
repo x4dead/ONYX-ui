@@ -91,6 +91,9 @@ class MonthlyPaymentWidget extends StatelessWidget {
         ),
         kSBH10,
         CustomButton(
+          onTap: () {
+            context.pushNamed('payment');
+          },
           buttonText: localization.pay,
         ),
       ]),

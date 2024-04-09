@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:onyx_ui/themes/colors/app_colors.dart';
 import 'package:onyx_ui/ui/pages/auth_page/auth_page.dart';
 import 'package:onyx_ui/ui/pages/news_page/news_page.dart';
+import 'package:onyx_ui/ui/pages/payment_page/payment_page.dart';
 import 'package:onyx_ui/ui/pages/payment_schedule_page/payment_schedule_page.dart';
 import 'package:onyx_ui/ui/pages/reconstruction_page/reconstruction_page.dart';
 import 'package:onyx_ui/ui/pages/settings_page/settings_page.dart';
@@ -49,6 +50,14 @@ class AppRouter {
             return '/splash';
             // return '/auth';
             // }
+          },
+        ),
+        GoRoute(
+          name: 'payment',
+          path: '/payment',
+          pageBuilder: (context, state) {
+            return FadeTransitionPage(
+                child: const PaymentPage(), key: state.pageKey);
           },
         ),
         GoRoute(

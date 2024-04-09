@@ -2,8 +2,12 @@
 
 class RequisitesRepaymentButtons extends ConsumerWidget {
   const RequisitesRepaymentButtons({
+    this.paymentDate,
+    this.payment = ('10', '12'),
     super.key,
   });
+  final DateTime? paymentDate;
+  final (String, String)? payment;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,9 +43,9 @@ class RequisitesRepaymentButtons extends ConsumerWidget {
                         Text(
                           itemIndex == 1
                               ? ref.watch(River.settingsPod).locale == 'ru'
-                                  ? "10 из 12 \nплатежей"
-                                  : "12 ден 10 \nтөлемдер"
-                              : paymentDate.year.toString(),
+                                  ? "${payment?.$1} из ${payment?.$2} \nплатежей"
+                                  : "${payment?.$2} ден ${payment?.$1} \nтөлемдер"
+                              : (paymentDate ?? DateTime.now()).year.toString(),
                           textAlign: TextAlign.center,
                           style: AppTextStyle.w500s18
                               .copyWith(

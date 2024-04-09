@@ -38,6 +38,7 @@ const kSBH96 = SizedBox(height: 96);
 const kNothing = SizedBox.shrink();
 
 ///Padding
+const kPH20V16 = EdgeInsets.symmetric(horizontal: 20, vertical: 16);
 const kPH20V12 = EdgeInsets.symmetric(horizontal: 20, vertical: 12);
 const kPH10V6 = EdgeInsets.symmetric(horizontal: 10, vertical: 6);
 const kPH12 = EdgeInsets.symmetric(horizontal: 12);
@@ -70,6 +71,7 @@ const kS36 = Size(36, 36);
 //         color: AppColors.colorLightGray,
 //         width: 1,
 //         strokeAlign: BorderSide.strokeAlignInside));
+const allCircularRadius6 = BorderRadius.all(Radius.circular(6));
 const allCircularRadius12 = BorderRadius.all(Radius.circular(12));
 const roundedBoxDecoration = BoxDecoration(borderRadius: allCircularRadius12);
 ColorFilter svgColorFilter({Color? color}) =>
