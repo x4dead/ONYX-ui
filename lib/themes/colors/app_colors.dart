@@ -23,8 +23,10 @@ abstract class AppColors {
     end: Alignment.bottomRight,
   );
   static const LinearGradient gradienCurrentDebt = LinearGradient(
-    begin: Alignment(-5, 7.5),
-    end: Alignment(5, -7.5),
+    begin: Alignment(-3.5, 7.5),
+    end: Alignment(3.5, -7.5),
+    // begin: Alignment(-2,5, 7.5),
+    // end: Alignment(2,5, -7.5),
     colors: [
       Color(0xFF00FFC2),
       // Color.fromARGB(155, 0, 255, 195),

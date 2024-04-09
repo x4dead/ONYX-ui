@@ -39,7 +39,8 @@ class ConditionsListWidget extends StatelessWidget {
                         itemIndex == 2
                             ? Converting.getPaymentDateDMY(
                                 condition[itemIndex].$3 as DateTime)
-                            : condition[itemIndex].$3 as String,
+                            : Converting.formatNumber(
+                                condition[itemIndex].$3 as String),
                         style: AppTextStyle.w600s24,
                       ),
                     ),

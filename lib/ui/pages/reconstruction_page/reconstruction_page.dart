@@ -108,40 +108,37 @@ class _ReconstructionPageState extends State<ReconstructionPage>
       ),
       drawer: DrawerMenu(routeState: widget.routeState),
       body: SafeArea(
-        child: Padding(
-          padding: kPH20,
-          child: Column(
-            children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(4),
-                  child: ValueListenableBuilder(
-                      valueListenable: position,
-                      builder: (context, v, c) {
-                        return DotsIndicator(
-                          dotsCount: 3,
-                          position: position.value,
-                        );
-                      }),
+        child: Column(
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: ValueListenableBuilder(
+                    valueListenable: position,
+                    builder: (context, v, c) {
+                      return DotsIndicator(
+                        dotsCount: 3,
+                        position: position.value,
+                      );
+                    }),
+              ),
+            ),
+            Flexible(
+              child: DefaultTabController(
+                length: 3,
+                child: TabBarView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  dragStartBehavior: DragStartBehavior.down,
+                  controller: reconstructionController,
+                  children: const [
+                    ConditionsViewWidget(),
+                    RestructuringProposalWidget(),
+                    ApplicationAcceptedWidget(),
+                  ],
                 ),
               ),
-              Flexible(
-                child: DefaultTabController(
-                  length: 3,
-                  child: TabBarView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    dragStartBehavior: DragStartBehavior.down,
-                    controller: reconstructionController,
-                    children: const [
-                      ConditionsViewWidget(),
-                      RestructuringProposalWidget(),
-                      ApplicationAcceptedWidget(),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
