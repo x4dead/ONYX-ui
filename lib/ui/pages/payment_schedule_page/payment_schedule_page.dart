@@ -17,7 +17,6 @@ import 'package:onyx_ui/utils/extensions/context_localization.dart';
 import 'package:onyx_ui/utils/extensions/converting.dart';
 import 'package:onyx_ui/utils/extensions/figma_height.dart';
 import 'package:onyx_ui/utils/extensions/media_query.dart';
-import 'package:onyx_ui/utils/extensions/no_thumb_scroll_behavior.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
 
 part 'widgets/calendar_paid_payments.dart';

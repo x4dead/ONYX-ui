@@ -112,7 +112,7 @@ class _ConfirmNumberViewWidgetConsumerState
                                 child: CupertinoActivityIndicator(),
                               ));
                       await Future.delayed(const Duration(seconds: 2))
-                          .then((value) => context.go('/news'));
+                          .then((value) => context.go('/reconstruction'));
                     }
                   },
                   focusNode: _focusNodes[i],
