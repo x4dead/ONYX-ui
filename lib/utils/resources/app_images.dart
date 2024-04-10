@@ -1,7 +1,7 @@
 abstract class AppImages {
   static const chat = 'assets/svg/chat.svg';
   static const arrowLeft = 'assets/svg/arrow_left.svg';
-
+  static const card = 'assets/svg/card.svg';
   static const masterCard = 'assets/svg/master_card.svg';
   static const close = 'assets/svg/close.svg';
   static const closeFill = 'assets/svg/close_fill.svg';

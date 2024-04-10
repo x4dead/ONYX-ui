@@ -28,7 +28,7 @@ class DrawerMenu extends StatelessWidget {
     final List<(String, String)> menuButtons = [
       (AppImages.wallet, localization.debt),
       (AppImages.list, localization.paymentSchedule),
-      (AppImages.news, localization.news),
+      // (AppImages.news, localization.news),
       (AppImages.support, localization.support),
       (AppImages.settings, localization.settings),
     ];
@@ -87,17 +87,18 @@ class DrawerMenu extends StatelessWidget {
               children: [
                 Flexible(
                   child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxHeight: 300),
+                    constraints: const BoxConstraints(maxHeight: 240),
                     child: ListView.custom(
                       childrenDelegate: SliverChildBuilderDelegate(
                         childCount: menuButtons.length,
                         (context, index) => _MenuButton(
+                            notificationCount: index == 0 ? 2 : null,
                             () => switch (index) {
                                   0 => {goToPage('reconstruction')},
                                   1 => {goToPage('payment_schedule')},
-                                  2 => {goToPage('news')},
-                                  3 => {goToPage('support')},
-                                  4 => {goToPage('settings')},
+                                  // 2 => {goToPage('news')},
+                                  2 => {goToPage('support')},
+                                  3 => {goToPage('settings')},
                                   _ => null,
                                 },
                             (menuButtons[index].$1, menuButtons[index].$2)),
@@ -134,9 +135,10 @@ class DrawerMenu extends StatelessWidget {
 }
 
 class _MenuButton extends StatelessWidget {
-  const _MenuButton(this.onTap, this.buttonInfo);
+  const _MenuButton(this.onTap, this.buttonInfo, {this.notificationCount});
   final VoidCallback onTap;
   final (String, String) buttonInfo;
+  final int? notificationCount;
   @override
   Widget build(BuildContext context) {
     return SplashButton(
@@ -156,7 +158,25 @@ class _MenuButton extends StatelessWidget {
               buttonInfo.$2,
               style: AppTextStyle.w500s18.copyWith(
                   color: AppColors.colorBlack, height: 13.0.toFigmaHeight(18)),
-            )
+            ),
+            if (notificationCount != null) ...[
+              spacer,
+              Container(
+                height: 24,
+                width: 24,
+                decoration: roundedBoxDecoration.copyWith(
+                  color: AppColors.colorPrimaryBlue,
+                  borderRadius: const BorderRadius.all(Radius.circular(100)),
+                ),
+                child: Center(
+                  child: Text(
+                    '$notificationCount',
+                    style: AppTextStyle.w500s10
+                        .copyWith(color: AppColors.colorWhite),
+                  ),
+                ),
+              )
+            ]
           ],
         ),
       ),

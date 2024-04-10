@@ -107,6 +107,7 @@ class _EnterInfoViewWidgetConsumerState
                 isSelectedIconFill: false,
                 isLeadingOnCenter: false,
                 titleStyle: AppTextStyle.w500s14,
+                bgColor: AppColors.colorTransparent,
                 padding: kPV10,
                 onTap: () {
                   isUserAgreementAccepted.value =

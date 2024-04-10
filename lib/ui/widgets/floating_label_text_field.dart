@@ -144,6 +144,7 @@ class _FloatingLabelTextFieldState extends State<FloatingLabelTextField> {
                 maxLines: null,
                 expands: true,
                 // widget.maxLines,
+
                 maxLength: widget.maxLength,
                 controller: widget.controller,
                 validator: widget.validator,
@@ -151,6 +152,7 @@ class _FloatingLabelTextFieldState extends State<FloatingLabelTextField> {
                 cursorWidth: 1,
                 textAlign: widget.textAlign ?? TextAlign.start,
                 decoration: InputDecoration(
+                    counterText: '',
                     constraints: widget.constraints ??
                         const BoxConstraints(maxHeight: 56, minHeight: 56),
                     enabledBorder: widget.enabledBorder ?? border,

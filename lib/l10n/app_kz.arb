@@ -2,7 +2,7 @@
     "@@locale": "kk",
   "language": "Тіл",
   "noPercentage": "Ешқандай өсім, өсім немесе өсім жоқ!",
-  "discount": "60% дейін жеңілдік!",
+  "discount": "55% дейін жеңілдік!",
   "goIn": "Кіру",
   "welcome": "-ке қош келдіңіз!",
   "fullName": "Толық аты",
@@ -111,5 +111,13 @@
 },
 "payment":"Төлем",
 "paymentMethod":"Төлем тәсілі",
-"autoPayment":"Автоматты төлем"
+"autoPayment":"Автоматты төлем",
+"newCard":"Жаңа карта",
+"writeCardInfo":"Карта мәліметтерін енгізіңіз",
+"itsSafe":"(Бұл қауіпсіз)",
+"cardNumber":"Карта нөмірі",
+"writeCardNumber":"Карта нөмірін енгізіңіз",
+"writeDate":"Күнді енгізіңіз",
+"writeCVV":"CVV енгізіңіз",
+"rememberCard":"Картаны есте сақтаңыз"
 }

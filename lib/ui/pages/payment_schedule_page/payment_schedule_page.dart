@@ -54,9 +54,10 @@ class PaymentSchedulePage extends StatelessWidget {
                     ? 18
                     : 20,
             bottom: 10,
-            top: 10),
+            top: 0),
         child: CustomScrollView(
           slivers: [
+            const SliverToBoxAdapter(child: kSBH10),
             const SliverToBoxAdapter(child: MonthlyPaymentWidget()),
             _kSBH15,
             const SliverToBoxAdapter(child: CalendarPaidPaymentsButtons()),

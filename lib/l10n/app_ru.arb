@@ -2,7 +2,7 @@
     "@@locale": "ru",
   "language": "Язык",
   "noPercentage": "Никаких процентов, штрафов и пени!",
-  "discount": "Дисконт до 60%!",
+  "discount": "Дисконт до 55%!",
   "goIn": "Вход",
   "welcome": "Добро пожаловать в",
   "fullName": "ФИО",
@@ -63,7 +63,7 @@
   "wantToReduceTheBalance":"Желаете сократить остаток Вашего основного долга в",
   "yes":"Да",
   "no":"Нет",
-  "restructuringProposal":"Предложение по реструктуризации Вашей задолженности в\n",
+  "restructuringProposal":"Предложение по реструктуризации Вашей задолженности\nв ",
    "restructuringProposalPrice":"{price} тенге:",
   "@restructuringProposalPrice": {
   "placeholders": {
@@ -110,5 +110,13 @@
 },
 "payment":"Оплата",
 "paymentMethod":"Способ оплаты",
-"autoPayment":"Автоплатёж"
+"autoPayment":"Автоплатёж",
+"newCard":"Новая карта",
+"writeCardInfo":"Введите данные вашей карты",
+"itsSafe":"(Это безопасно)",
+"cardNumber":"Номер карты",
+"writeCardNumber":"Введите номер карты",
+"writeDate":"Введите дату",
+"writeCVV":"Введите CVV",
+"rememberCard":"Запомнить карту"
 }

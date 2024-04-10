@@ -7,7 +7,7 @@ import 'package:onyx_ui/utils/extensions/converting.dart';
 import 'package:onyx_ui/utils/extensions/figma_height.dart';
 import 'package:onyx_ui/utils/resources/app_images.dart';
 
-class CreditCard extends StatefulWidget {
+class CreditCard extends StatelessWidget {
   const CreditCard(
       {super.key,
       required this.cardNumber,
@@ -18,19 +18,14 @@ class CreditCard extends StatefulWidget {
   final VoidCallback? onTap;
 
   @override
-  State<CreditCard> createState() => _CreditCardState();
-}
-
-class _CreditCardState extends State<CreditCard> {
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onTap,
+      onTap: onTap,
       child: Container(
         clipBehavior: Clip.hardEdge,
         width: 116,
         height: 80,
-        decoration: widget.isSelected == true
+        decoration: isSelected == true
             ? BoxDecoration(
                 borderRadius: allCircularRadius12,
                 border: Border.all(
@@ -48,18 +43,18 @@ class _CreditCardState extends State<CreditCard> {
               height: 64,
               width: 100,
               decoration: roundedBoxDecoration.copyWith(
-                color: widget.isSelected == true
+                color: isSelected == true
                     ? AppColors.colorGray0
                     : AppColors.colorPrimaryBlue,
                 borderRadius: BorderRadius.all(
-                    Radius.circular(widget.isSelected == true ? 4 : 6)),
+                    Radius.circular(isSelected == true ? 4 : 6)),
               ),
               child: Stack(
                 alignment: Alignment.center,
                 clipBehavior: Clip.hardEdge,
                 children: [
                   Positioned(
-                    left: widget.isSelected == true ? -77.6 : -82,
+                    left: isSelected == true ? -77.6 : -82,
                     child: Transform.rotate(
                       angle: 79.8,
                       child: Container(
@@ -68,7 +63,7 @@ class _CreditCardState extends State<CreditCard> {
                           height: 106.14,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                                colors: widget.isSelected == true
+                                colors: isSelected == true
                                     ? const [
                                         Color(0xff272F3E),
                                         Color(0xff242B3A)
@@ -77,7 +72,7 @@ class _CreditCardState extends State<CreditCard> {
                                         Color(0xff4744CB),
                                         Color(0xff2926B4)
                                       ]),
-                            color: widget.isSelected == true
+                            color: isSelected == true
                                 ? const Color.fromARGB(180, 39, 47, 62)
                                 : const Color.fromRGBO(71, 68, 203, 1),
                           )),
@@ -91,7 +86,7 @@ class _CreditCardState extends State<CreditCard> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(Converting.formatCardNumber(widget.cardNumber),
+                        Text(Converting.formatCardNumber(cardNumber),
                             style: AppTextStyle.w500s14.copyWith(
                                 fontSize: 11,
                                 height: 13.0.toFigmaHeight(11),

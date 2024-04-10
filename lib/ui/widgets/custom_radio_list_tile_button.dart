@@ -13,20 +13,23 @@ class CustomRadioListTileButton extends StatelessWidget {
       this.titleStyle,
       this.padding,
       this.isLeadingOnCenter = true,
-      this.isSelectedIconFill = true});
+      this.isSelectedIconFill = true,
+      this.bgColor});
   final bool? isSelected;
   final bool? isSelectedIconFill;
   final bool? isLeadingOnCenter;
   final String title;
   final TextStyle? titleStyle;
   final VoidCallback? onTap;
+  final Color? bgColor;
   final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       clipBehavior: Clip.hardEdge,
-      decoration: roundedBoxDecoration.copyWith(color: AppColors.colorGray80),
+      decoration: roundedBoxDecoration.copyWith(
+          color: bgColor ?? AppColors.colorGray80),
       child: SplashButton(
         onTap: onTap ?? () {},
         child: Padding(

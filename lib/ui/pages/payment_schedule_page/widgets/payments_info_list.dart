@@ -25,8 +25,12 @@ class _PaymentsInfoListState extends State<PaymentsInfoList> {
           top: 0,
         ),
         child: Column(
-          children: List.generate(listPayments.length, (index) {
-            return PaymentCard(monthlyPaymentClass: listPayments[index]);
+          children: List.generate(listPayments.length * 2 - 1, (index) {
+            if (index.isEven) {
+              final itemIndex = index ~/ 2;
+              return PaymentCard(monthlyPaymentClass: listPayments[itemIndex]);
+            }
+            return const Divider(color: AppColors.colorGray60, height: 1);
           }),
         ),
       )),
@@ -43,54 +47,58 @@ class PaymentCard extends StatelessWidget {
     final style = AppTextStyle.w500s16.copyWith(height: 20.0.toFigmaHeight(16));
     return Container(
         decoration: const BoxDecoration(
-            border: Border(
-                bottom: BorderSide(color: AppColors.colorGray60, width: 1))),
-        height: 50,
-        child: Row(
-          children: List.generate(4, (index) {
-            if (index != 3) {
-              return Flexible(
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: Text(
-                        index == 2
-                            ? "${Converting.formatNumber(monthlyPaymentClass.balanceOwed!)} ₸"
-                            : index == 1
-                                ? "${Converting.formatNumber(monthlyPaymentClass.paymentAmount!)} ₸"
-                                : Converting.getPaymentDateDMY(
-                                    monthlyPaymentClass.paymentDate!),
-                        style: style,
-                      ),
-                    )
-                  ],
-                ),
-              );
-            }
-            if (monthlyPaymentClass.isPayed == false) {
-              final currentPaymentIndex =
-                  listPayments.indexOf(monthlyPaymentClass);
-              final bool isCurrentPayment = listPayments
-                      .elementAt(currentPaymentIndex == 0
-                          ? 0
-                          : currentPaymentIndex - 1)
-                      .isPayed ==
-                  true;
-              return SvgPicture.asset(
-                AppImages.timeFill,
-                colorFilter: svgColorFilter(
-                  color: isCurrentPayment || currentPaymentIndex == 0
-                      ? AppColors.colorPrimaryBlue
-                      : AppColors.colorGray40,
-                ),
-              );
-            } else {
-              return const Icon(
-                CupertinoIcons.checkmark_alt_circle_fill,
-                color: AppColors.colorGreen,
-              );
-            }
-          }),
+            // border: Border(
+            //     bottom: BorderSide(color: AppColors.colorGray60, width: 1)),
+            ),
+        height: 49,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 12, top: 13),
+          child: Row(
+            children: List.generate(4, (index) {
+              if (index != 3) {
+                return Flexible(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          index == 2
+                              ? "${Converting.formatNumber(monthlyPaymentClass.balanceOwed!)} ₸"
+                              : index == 1
+                                  ? "${Converting.formatNumber(monthlyPaymentClass.paymentAmount!)} ₸"
+                                  : Converting.getPaymentDateDMY(
+                                      monthlyPaymentClass.paymentDate!),
+                          style: style,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }
+              if (monthlyPaymentClass.isPayed == false) {
+                final currentPaymentIndex =
+                    listPayments.indexOf(monthlyPaymentClass);
+                final bool isCurrentPayment = listPayments
+                        .elementAt(currentPaymentIndex == 0
+                            ? 0
+                            : currentPaymentIndex - 1)
+                        .isPayed ==
+                    true;
+                return SvgPicture.asset(
+                  AppImages.timeFill,
+                  colorFilter: svgColorFilter(
+                    color: isCurrentPayment || currentPaymentIndex == 0
+                        ? AppColors.colorPrimaryBlue
+                        : AppColors.colorGray40,
+                  ),
+                );
+              } else {
+                return const Icon(
+                  CupertinoIcons.checkmark_alt_circle_fill,
+                  color: AppColors.colorGreen,
+                );
+              }
+            }),
+          ),
         ));
   }
 }

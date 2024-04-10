@@ -38,6 +38,7 @@ class _PaymentPageState extends State<PaymentPage> {
   Widget build(BuildContext context) {
     final localization = context.localization;
     return Scaffold(
+      backgroundColor: AppColors.colorWhite,
       appBar: CustomAppBar(title: localization.payment),
       body: Column(
         children: [
@@ -76,7 +77,9 @@ class _PaymentPageState extends State<PaymentPage> {
                             height: 64,
                             bgColor: AppColors.colorGray80,
                             borderRadius: allCircularRadius6,
-                            onTap: () {},
+                            onTap: () {
+                              context.pushNamed('new-card');
+                            },
                             child: Center(
                                 child: Container(
                               decoration: roundedBoxDecoration.copyWith(
